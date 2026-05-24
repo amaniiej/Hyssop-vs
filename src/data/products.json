@@ -1,0 +1,254 @@
+[
+  {
+    "id": 1,
+    "image": "/images/Papaya Leaf.jpg",
+    "title": "Papaya Leaf",
+    "description": "[{description}]",
+    "price": "$12.00"
+  },
+  {
+    "id": 2,
+    "image": "/images/Mhyrr.jpg",
+    "title": "Mhyrr",
+    "description": "[{description}]",
+    "price": "$15.00"
+  },
+  {
+    "id": 3,
+    "image": "/images/Moringa Leaf.jpg",
+    "title": "Moringa Leaf.jpg",
+    "description": "[{description}]",
+    "price": "$14.00"
+  },
+  {
+    "id": 4,
+    "image": "/images/VITALITY HERBAL BLEND.jpg",
+    "title": "Vitality Herbal Blend",
+    "description": "[{description}]",
+    "price": "$16.00"
+  },
+  {
+    "id": 5,
+    "image": "/images/LIVER CLEANSER HERBAL BLEND.jpg",
+    "title": "Liver Cleanser Herbal Blend",
+    "description": "[{description}]",
+    "price": "$13.00"
+  },
+  {
+    "id": 6,
+    "image": "/images/COLON CLEANSER.jpg",
+    "title": "Colon Cleanser",
+    "description": "[{description}]",
+    "price": "$10.00"
+  },
+  {
+    "id": 7,
+    "image": "/images/WOMENs CLEANSING.jpg",
+    "title": "Women's Cleansing",
+    "description": "[{description}]",
+    "price": "$11.00"
+  },
+  {
+    "id": 8,
+    "image": "/images/Turmeric.jpg",
+    "title": "Turmeric",
+    "description": "[{description}]",
+    "price": "$9.00"
+  },
+  {
+    "id": 9,
+    "image": "/images/Castor oil Cold pressed.jpg",
+    "title": "Castor Oil Cold Pressed",
+    "description": "[{description}]",
+    "price": "$12.00"
+  },
+  {
+    "id": 10,
+    "image": "/images/Avocado Leaf.jpg",
+    "title": "Avocado Leaf",
+    "description": "[{description}]",
+    "price": "$10.00"
+  },
+  {
+    "id": 11,
+    "image": "/images/Shebe.jpg",
+    "title": "Shebe",
+    "description": "[{description}]",
+    "price": "$13.00"
+  },
+  {
+    "id": 12,
+    "image": "/images/Ashwagandha.jpg",
+    "title": "Ashwagandha",
+    "description": "[{description}]",
+    "price": "$11.00"
+  },
+  {
+    "id": 13,
+    "image": "/images/Lemon Leaf.jpg",
+    "title": "Lemon Leaf",
+    "description": "[{description}]",
+    "price": "$18.00"
+  },
+  {
+    "id": 14,
+    "image": "/images/BLOOD PURIFIER HERBAL BLEND.jpg",
+    "title": "Blood Purifier Herbal Blend",
+    "description": "[{description}]",
+    "price": "$14.00"
+  },
+  {
+    "id": 15,
+    "image": "/images/Guava  Leaf.jpg",
+    "title": "Guava  Leaf",
+    "description": "[{description}]",
+    "price": "$17.00"
+  },
+  {
+    "id": 16,
+    "image": "/images/Stone Breaker (Chanka Piedra).jpeg",
+    "title": "Stone Breaker (Chanka Piedra)",
+    "description": "[{description}]",
+    "price": "$20.00"
+  },
+  {
+    "id": 17,
+    "image": "/images/Cayenne Papper.jpeg",
+    "title": "Cayenne Papper",
+    "description": "[{description}]",
+    "price": "$12.00"
+  },
+  {
+    "id": 18,
+    "image": "/images/Parasite Cleansing.jpeg",
+    "title": "Parasite Cleansing",
+    "description": "[{description}]",
+    "price": "$15.00"
+  },
+  {
+    "id": 19,
+    "image": "/images/Chastberry (Vitex).jpeg",
+    "title": "Chastberry (Vitex)",
+    "description": "[{description}]",
+    "price": "$9.00"
+  },
+  {
+    "id": 20,
+    "image": "/images/Marshmallow.jpeg",
+    "title": "Marshmallow",
+    "description": "[{description}]",
+    "price": "$10.00"
+  },
+  {
+    "id": 21,
+    "image": "/images/Artemisia Abyssinica.jpeg",
+    "title": "Artemisia Abyssinica",
+    "description": "[{description}]",
+    "price": "$16.00"
+  },
+  {
+    "id": 22,
+    "image": "/images/Fertility.jpeg",
+    "title": "Fertility",
+    "description": "[{description}]",
+    "price": "$13.00"
+  },
+  {
+    "id": 23,
+    "image": "/images/Lomishet.jpeg",
+    "title": "Lomishet",
+    "description": "[{description}]",
+    "price": "$11.00"
+  },
+  {
+    "id": 24,
+    "image": "/images/Apricot Seed.jpeg",
+    "title": "Apricot Seed",
+    "description": "[{description}]",
+    "price": "$12.00"
+  },
+  {
+    "id": 25,
+    "image": "/images/Fertility Booster.jpeg",
+    "title": "Fertility Booster",
+    "description": "[{description}]",
+    "price": "$18.00"
+  },
+  {
+    "id": 26,
+    "image": "/images/Slippery Elm.jpeg",
+    "title": "Slippery Elm",
+    "description": "[{description}]",
+    "price": "$19.00"
+  },
+  {
+    "id": 27,
+    "image": "/images/Uti Herbal Tea.jpeg",
+    "title": "Uti Herbal Tea",
+    "description": "[{description}]",
+    "price": "$22.00"
+  },
+  {
+    "id": 28,
+    "image": "/images/Yarrow Root.jpeg",
+    "title": "Yarrow Root",
+    "description": "[{description}]",
+    "price": "$28.00"
+  },
+  {
+    "id": 29,
+    "image": "/images/Soursop Graviola.jpeg",
+    "title": "Soursop Graviola",
+    "description": "[{description}]",
+    "price": "$25.00"
+  },
+  {
+    "id": 30,
+    "image": "/images/Chamomile Herbal Tea.jpeg",
+    "title": "Chamomile Herbal Tea",
+    "description": "[{description}]",
+    "price": "$30.00"
+  },
+  {
+    "id": 31,
+    "image": "/images/Indian Sarsaparilla.jpeg",
+    "title": "Indian Sarsaparilla",
+    "description": "[{description}]",
+    "price": "$27.00"
+  },
+  {
+    "id": 32,
+    "image": "/images/Baking Soda.jpeg",
+    "title": "Baking Soda",
+    "description": "[{description}]",
+    "price": "$14.00"
+  },
+  {
+    "id": 33,
+    "image": "/images/Dandelion Root.jpeg",
+    "title": "Dandelion Root",
+    "description": "[{description}]",
+    "price": "$15.00"
+  },
+  {
+    "id": 34,
+    "image": "/images/Hawthorn Leaf and Flower.jpeg",
+    "title": "Hawthorn Leaf and Flower",
+    "description": "[{description}]",
+    "price": "$18.00"
+  },
+  {
+    "id": 35,
+    "image": "/images/Maca Powder.jpeg",
+    "title": "Maca Powder",
+    "description": "[{description}]",
+    "price": "$13.00"
+  },
+  {
+    "id": 36,
+    "image": "/images/Essiac Blend.jpeg",
+    "title": "Essiac Blend",
+    "description": "[{description}]",
+    "price": "$19.00"
+  }
+]
