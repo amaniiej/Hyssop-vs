@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="relative bg-[#061411] pt-10 pb-5 px-6 overflow-hidden border-t border-amber-500/20">
       
       {/* --- GROUNDING BORDER ACCENT --- */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-amber-500/30 to-transparent" />
       <div className="absolute -bottom-24 -left-20 w-48 h-48 bg-green-500/5 blur-[80px] rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">

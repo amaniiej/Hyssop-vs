@@ -103,9 +103,9 @@ export default function Process() {
         {/* Header */}
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="h-[1px] w-8 bg-amber-500/50" />
+            <div className="h-px w-8 bg-amber-500/50" />
             <span className="text-[10px] tracking-[0.6em] uppercase text-amber-400 font-black">The Hyssop Standard</span>
-            <div className="h-[1px] w-8 bg-amber-500/50" />
+            <div className="h-px w-8 bg-amber-500/50" />
           </div>
           <h2 className="text-5xl md:text-7xl font-serif text-white leading-tight">
             From <span className="italic text-green-400">Seed</span> to <span className="text-white">Soul</span>
@@ -134,11 +134,11 @@ export default function Process() {
 
               <div className="relative shrink-0 flex items-center justify-center w-24 h-24">
                 <div className="absolute inset-0 border border-green-500/10 rounded-full animate-ping opacity-20" />
-                <div className="w-16 h-16 rounded-[2rem] bg-white/[0.03] backdrop-blur-xl border border-white/10 flex items-center justify-center text-white text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
+                <div className="w-16 h-16 rounded-4xl bg-white/3 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
                    {step.icon}
                 </div>
                 {i !== steps.length - 1 && (
-                  <div className="absolute top-full h-24 w-[1px] bg-gradient-to-b from-white/10 to-transparent" />
+                  <div className="absolute top-full h-24 w-px bg-linear-to-b from-white/10 to-transparent" />
                 )}
               </div>
 
@@ -155,7 +155,7 @@ export default function Process() {
               className="absolute inset-0 w-full h-full object-cover opacity-30"
               alt=""
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0b1f1a] via-transparent to-black/60" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#0b1f1a] via-transparent to-black/60" />
             
             <div className="relative z-10 py-10 md:py-12 px-8 text-center">
               <span className="text-amber-500 text-[10px] tracking-[0.8em] uppercase font-black block mb-4">Our Promise</span>

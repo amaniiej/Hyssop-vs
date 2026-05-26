@@ -127,11 +127,11 @@ export default function Services() {
       {/* Sacred Rituals Label - High Brightness */}
       <div className="relative z-30 flex justify-center" style={{ marginTop: "-2.5rem" }}>
         <div className="flex items-center gap-3">
-          <div className="h-px w-12 bg-gradient-to-r from-transparent via-amber-400" />
+          <div className="h-px w-12 bg-linear-to-r from-transparent via-amber-400" />
           <span className="font-black tracking-[0.6em] uppercase" style={{ fontSize: "12px", color: "#fff", textShadow: "0 0 15px rgba(255,255,255,1), 0 0 30px rgba(251,191,36,0.8)" }}>
             Sacred Rituals
           </span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent via-amber-400" />
+          <div className="h-px w-12 bg-linear-to-l from-transparent via-amber-400" />
         </div>
       </div>
 
@@ -139,7 +139,7 @@ export default function Services() {
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ mixBlendMode: "screen" }} />
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 45%, rgba(34,197,94,0.05) 0%, transparent 65%)" }} />
 
-        <div className="relative z-10 max-w-screen-xl mx-auto w-full">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl font-serif text-white mb-5 leading-tight">
@@ -163,7 +163,7 @@ export default function Services() {
                     style={{ padding: svc.large ? "12px 32px" : "10px 24px", background: "rgba(255,255,255,0.03)" }}
                   >
                     {/* The TaniaDou Masked Border effect applied to bubbles */}
-                    <div className="absolute inset-0 p-[1px] opacity-20 group-hover:opacity-100 transition-opacity" 
+                    <div className="absolute inset-0 p-px opacity-20 group-hover:opacity-100 transition-opacity" 
                          style={{
                            background: `linear-gradient(180deg, ${ac.dot} 0%, transparent 100%)`,
                            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -191,7 +191,7 @@ export default function Services() {
                 {/* Base Layer */}
                 <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-amber-500/10 shadow-[inset_0_0_20px_rgba(251,191,36,0.3)] transition-all duration-300 group-hover:bg-amber-500/20 group-hover:shadow-[0_0_35px_rgba(251,191,36,0.25)]" />
                 {/* TaniaDou Border DNA */}
-                <div className="absolute inset-0 -z-10 rounded-full p-[1px]" 
+                <div className="absolute inset-0 -z-10 rounded-full p-px" 
                   style={{
                     background: 'linear-gradient(180deg, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0) 100%)',
                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',

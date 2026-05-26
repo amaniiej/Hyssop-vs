@@ -17,8 +17,8 @@ export default function Hero() {
       className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0b1f1a]"
     >
       {/* Background Decorative Glows */}
-      <div className="absolute w-[600px] h-[600px] bg-green-500/10 blur-[120px] rounded-full -top-48 -left-24" />
-      <div className="absolute w-[400px] h-[400px] bg-green-900/20 blur-[100px] rounded-full bottom-0 right-0" />
+      <div className="absolute w-150 h-150 bg-green-500/10 blur-[120px] rounded-full -top-48 -left-24" />
+      <div className="absolute w-100 h-100 bg-green-900/20 blur-[100px] rounded-full bottom-0 right-0" />
 
       <div className="container mx-auto px-6 md:px-12 z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
@@ -52,7 +52,7 @@ export default function Hero() {
                   {/* Base Layer */}
                   <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_12px_rgba(74,222,128,0.4)] transition-all duration-300 group-hover:bg-green-500/40 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]" />
                   {/* Glowing Border Layer */}
-                  <div className="absolute inset-0 -z-10 rounded-full p-[1px]" 
+                  <div className="absolute inset-0 -z-10 rounded-full p-px" 
                     style={{
                       background: 'linear-gradient(180deg, rgba(134,239,172,0.4) 0%, rgba(134,239,172,0) 100%)',
                       WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -72,7 +72,7 @@ export default function Hero() {
                   {/* Base Layer */}
                   <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-amber-500/10 shadow-[inset_0_0_12px_rgba(251,191,36,0.3)] transition-all duration-300 group-hover:bg-amber-500/30 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.2)]" />
                   {/* Glowing Border Layer */}
-                  <div className="absolute inset-0 -z-10 rounded-full p-[1px]" 
+                  <div className="absolute inset-0 -z-10 rounded-full p-px" 
                     style={{
                       background: 'linear-gradient(180deg, rgba(251,191,36,0.4) 0%, rgba(251,191,36,0) 100%)',
                       WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',

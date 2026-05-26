@@ -48,8 +48,8 @@ export default function AboutPage() {
       
       {/* --- DOPE BACKGROUND: CURLY LINES & 15 LOGOS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[10%] left-[-5%] w-[700px] h-[700px] bg-emerald-600/10 blur-[100px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-amber-500/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[10%] left-[-5%] w-175 h-175 bg-emerald-600/10 blur-[100px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-5%] w-150 h-150 bg-amber-500/5 blur-[120px] rounded-full" />
 
         <div className="absolute inset-0 opacity-[0.15]">
           {logoGrid.map((pos, i) => (
@@ -81,7 +81,7 @@ export default function AboutPage() {
         
         {/* --- SECTION 1: ABOUT US --- */}
         <section className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
-          <div className="lg:w-1/2 space-y-6 mt-[-1rem]">
+          <div className="lg:w-1/2 space-y-6 -mt-4">
             <h2 className="text-6xl md:text-8xl font-serif leading-tight text-white mb-6">
               About <span className="italic text-green-400">Us</span>
             </h2>
@@ -97,10 +97,10 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:w-1/2 flex justify-center lg:justify-end items-start mt-[-2rem]">
-            <div className="relative w-full max-w-[420px]">
-              <div className="absolute -inset-3 border border-green-500/20 rounded-[2rem] -z-10 translate-x-3 translate-y-3" />
-              <img src="/images/Addis-herb2.jpg" className="w-full h-auto rounded-[2rem] shadow-2xl border border-white/10" alt="Remedies" />
+          <div className="lg:w-1/2 flex justify-center lg:justify-end items-start -mt-8">
+            <div className="relative w-full max-w-105">
+              <div className="absolute -inset-3 border border-green-500/20 rounded-4xl -z-10 translate-x-3 translate-y-3" />
+              <img src="/images/Addis-herb2.jpg" className="w-full h-auto rounded-4xl shadow-2xl border border-white/10" alt="Remedies" />
             </div>
           </div>
         </section>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+                <div className="p-6 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-md">
                    <div className="flex items-center gap-3 mb-2">
                      <FaMicroscope className="text-green-400" />
                      <span className="text-[9px] font-black uppercase text-green-400">Scientific Fact</span>
@@ -132,7 +132,7 @@ export default function AboutPage() {
                    <p className="text-2xl font-serif text-white">40% <span className="text-xs text-gray-500">of Global Medicine</span></p>
                    <p className="text-[10px] text-gray-400 mt-2">Derived directly from plant sources.</p>
                 </div>
-                <div className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+                <div className="p-6 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-md">
                    <div className="flex items-center gap-3 mb-2">
                      <FaBible className="text-amber-400" />
                      <span className="text-[9px] font-black uppercase text-amber-400">Ancient Text</span>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 />
                 
                 {/* 2. GRADIENT SHIELD */}
-                <div className="absolute inset-0 z-[1] bg-gradient-to-br from-[#0b1f1a]/80 via-transparent to-[#0b1f1a]/60" />
+                <div className="absolute inset-0 z-1 bg-linear-to-br from-[#0b1f1a]/80 via-transparent to-[#0b1f1a]/60" />
 
                 <div className="relative z-10 space-y-8">
                   <header className="text-center border-b border-white/10 pb-6">
@@ -255,7 +255,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((v, i) => (
-              <div key={i} className={`${v.shape} p-10 bg-white/[0.03] border border-white/10 backdrop-blur-md hover:border-green-500/40 transition-all duration-700 group shadow-xl`}>
+              <div key={i} className={`${v.shape} p-10 bg-white/3 border border-white/10 backdrop-blur-md hover:border-green-500/40 transition-all duration-700 group shadow-xl`}>
                 <div className="text-3xl text-green-400 mb-6 group-hover:scale-110 transition-transform group-hover:text-amber-400">{v.icon}</div>
                 <h4 className="text-xl font-serif text-white mb-3">{v.title}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed font-light">{v.desc}</p>
@@ -268,7 +268,7 @@ export default function AboutPage() {
 
       {/* --- VIDEO MODAL --- */}
       {activeVideo && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-fadeIn" onClick={() => setActiveVideo(null)}>
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/95 backdrop-blur-md p-4 animate-fadeIn" onClick={() => setActiveVideo(null)}>
           <button className="absolute top-8 right-8 text-white text-4xl hover:rotate-90 transition-all"><FaTimes /></button>
           <div className="w-full max-w-5xl aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl" onClick={e => e.stopPropagation()}>
             <iframe className="w-full h-full" src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`} frameBorder="0" allowFullScreen></iframe>

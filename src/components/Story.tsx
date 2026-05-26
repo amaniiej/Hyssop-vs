@@ -8,19 +8,19 @@ export default function Story() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         
         {/* 1. LEFT 35% YELLOWY-GLOW */}
-        <div className="absolute top-0 left-0 w-[35%] h-full bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-transparent blur-[80px] opacity-80" />
+        <div className="absolute top-0 left-0 w-[35%] h-full bg-linear-to-r from-amber-500/10 via-amber-600/5 to-transparent blur-[80px] opacity-80" />
         
         {/* 2. RIGHT 45% BACKGROUND IMAGE (Brightness set to 1 as requested) */}
         <div className="absolute top-0 right-0 w-[45%] h-full overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50 brightness-100 grayscale-[10%]"
+            className="absolute inset-0 bg-cover bg-center opacity-50 brightness-100 grayscale-10"
             style={{ backgroundImage: "url('/images/journey-to-wellness.jpeg')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b1f1a] via-[#0b1f1a]/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#0b1f1a] via-[#0b1f1a]/60 to-transparent" />
         </div>
 
         {/* 3. Deep Emerald Pulse */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 blur-[140px] rounded-full animate-pulse-slow" />
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-125 h-125 bg-emerald-500/10 blur-[140px] rounded-full animate-pulse-slow" />
         
         {/* 4. Weaving Curly Spirit Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">

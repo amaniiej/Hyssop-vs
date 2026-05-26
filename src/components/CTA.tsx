@@ -18,11 +18,11 @@ export default function CTA() {
       {/* --- CINEMATIC IMAGE BACKGROUND --- */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30 brightness-[0.4] grayscale-[20%]"
+          className="absolute inset-0 bg-cover bg-center opacity-30 brightness-[0.4] grayscale-20"
           style={{ backgroundImage: "url('/images/hero-img.jpeg')" }}
         />
         {/* Subtle Vignette to blend edges */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1f1a] via-transparent to-[#0b1f1a]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#0b1f1a] via-transparent to-[#0b1f1a]" />
       </div>
 
       {/* --- SURPRISE GRAPHIC: GIANT HOLLOW TYPOGRAPHY --- */}
@@ -40,14 +40,14 @@ export default function CTA() {
       </div>
 
       {/* --- CINEMATIC LIGHTING --- */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-green-500/10 blur-[160px] rounded-full pointer-events-none z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-100 bg-green-500/10 blur-[160px] rounded-full pointer-events-none z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
         
         {/* Left Side: Bold Statement */}
         <div className="flex-1 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
-            <span className="w-12 h-[1px] bg-amber-400/50"></span>
+            <span className="w-12 h-px bg-amber-400/50"></span>
             <span className="text-amber-400 text-xs tracking-[0.5em] uppercase font-bold">Your Sanctuary Awaits</span>
           </div>
           
@@ -73,7 +73,7 @@ export default function CTA() {
               <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_12px_rgba(74,222,128,0.4)] transition-all duration-300 group-hover:bg-green-500/40 group-hover:shadow-[0_0_25px_rgba(34,197,94,0.4)]" />
               
               {/* 2. Border Mask Layer */}
-              <div className="absolute inset-0 -z-10 rounded-full p-[1px]" 
+              <div className="absolute inset-0 -z-10 rounded-full p-px" 
                 style={{
                   background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)',
                   WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -112,7 +112,7 @@ export default function CTA() {
 
           <div className="absolute w-24 h-24 md:w-32 md:h-32 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center">
             <span className="text-4xl md:text-5xl">@</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500/20 to-transparent animate-pulse" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-green-500/20 to-transparent animate-pulse" />
           </div>
           
         </div>

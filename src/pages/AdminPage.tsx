@@ -528,14 +528,14 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#061411] text-white font-sans selection:bg-green-500/30 flex items-center justify-center relative p-6 overflow-hidden">
         {/* Dynamic pollen backgrounds */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-green-500/10 blur-[120px] rounded-full animate-pulse" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600/10 blur-[120px] rounded-full" />
+          <div className="absolute top-[-20%] left-[-10%] w-150 h-150 bg-green-500/10 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-125 h-125 bg-emerald-600/10 blur-[120px] rounded-full" />
         </div>
 
         <div className="relative z-10 w-full max-w-md">
           {/* Frosted Glass Login Box */}
           <div className="relative bg-[#0b1f1a]/80 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-[2.5rem] shadow-2xl space-y-6">
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/20 to-emerald-900/20 rounded-[2.5rem] blur opacity-30 pointer-events-none"></div>
+            <div className="absolute -inset-0.5 bg-linear-to-br from-green-500/20 to-emerald-900/20 rounded-[2.5rem] blur opacity-30 pointer-events-none"></div>
 
             <div className="relative text-center space-y-2">
               <div className="mx-auto w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-green-400 border border-green-500/20 mb-4 animate-bounce">
@@ -586,7 +586,7 @@ export default function AdminPage() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:brightness-110 active:scale-[0.98] text-white font-black uppercase text-xs tracking-widest rounded-xl transition-all shadow-xl hover:shadow-green-500/10 flex items-center justify-center gap-2 cursor-pointer mt-6"
+                className="w-full py-4 bg-linear-to-r from-green-500 to-emerald-600 hover:brightness-110 active:scale-[0.98] text-white font-black uppercase text-xs tracking-widest rounded-xl transition-all shadow-xl hover:shadow-green-500/10 flex items-center justify-center gap-2 cursor-pointer mt-6"
               >
                 🔐 Authenticate & Enter
               </button>
@@ -607,8 +607,8 @@ export default function AdminPage() {
     <div className="min-h-screen bg-[#061411] text-white font-sans selection:bg-green-500/30">
       {/* Dynamic pollen backgrounds */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-green-500/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-emerald-600/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[-20%] left-[-10%] w-150 h-150 bg-green-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-125 h-125 bg-emerald-600/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto p-4 sm:p-8">
@@ -646,7 +646,7 @@ export default function AdminPage() {
 
         {/* Stats Grid */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
-          <div className="bg-white/[0.02] border border-white/5 backdrop-blur-md rounded-[2rem] p-6 flex items-center justify-between">
+          <div className="bg-white/2 border border-white/5 backdrop-blur-md rounded-4xl p-6 flex items-center justify-between">
             <div>
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-bold block mb-1">Total Sales</span>
               <p className="text-xl sm:text-2xl font-serif text-white">${totalSales.toFixed(2)}</p>
@@ -656,7 +656,7 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="bg-white/[0.02] border border-white/5 backdrop-blur-md rounded-[2rem] p-6 flex items-center justify-between">
+          <div className="bg-white/2 border border-white/5 backdrop-blur-md rounded-4xl p-6 flex items-center justify-between">
             <div>
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-bold block mb-1">Total Orders</span>
               <p className="text-xl sm:text-2xl font-serif text-white">{orders.length}</p>
@@ -666,7 +666,7 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="bg-white/[0.02] border border-white/5 backdrop-blur-md rounded-[2rem] p-6 flex items-center justify-between">
+          <div className="bg-white/2 border border-white/5 backdrop-blur-md rounded-4xl p-6 flex items-center justify-between">
             <div>
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-bold block mb-1">Products Listed</span>
               <p className="text-xl sm:text-2xl font-serif text-white">{products.length}</p>
@@ -676,7 +676,7 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="bg-white/[0.02] border border-white/5 backdrop-blur-md rounded-[2rem] p-6 flex items-center justify-between">
+          <div className="bg-white/2 border border-white/5 backdrop-blur-md rounded-4xl p-6 flex items-center justify-between">
             <div>
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/40 font-bold block mb-1">Registered Users</span>
               <p className="text-xl sm:text-2xl font-serif text-white">{users.length}</p>
@@ -746,7 +746,7 @@ export default function AdminPage() {
         </div>
 
         {/* Main Content Area */}
-        <div className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-[2.5rem] overflow-hidden">
+        <div className="bg-white/1 border border-white/5 backdrop-blur-xl rounded-[2.5rem] overflow-hidden">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-24 text-white/40 gap-4">
               <div className="w-10 h-10 border-4 border-green-500/20 border-t-green-500 rounded-full animate-spin" />
@@ -757,9 +757,9 @@ export default function AdminPage() {
 
               {/* ORDERS TAB */}
               {activeTab === "orders" && (
-                <table className="w-full text-left border-collapse min-w-[900px]">
+                <table className="w-full text-left border-collapse min-w-225">
                   <thead>
-                    <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <tr className="border-b border-white/5 bg-white/2">
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Order</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Customer</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Location</th>
@@ -776,7 +776,7 @@ export default function AdminPage() {
                       </tr>
                     ) : (
                       orders.map(order => (
-                        <tr key={order.id} className="hover:bg-white/[0.02] transition-colors group">
+                        <tr key={order.id} className="hover:bg-white/2 transition-colors group">
                           <td className="px-6 py-4 font-mono text-xs text-emerald-400 font-bold">
                             HY-{order.id}
                             <span className="block text-[9px] text-white/35 mt-0.5 font-normal">{order.source.toUpperCase()}</span>
@@ -831,9 +831,9 @@ export default function AdminPage() {
 
               {/* PRODUCTS TAB */}
               {activeTab === "products" && (
-                <table className="w-full text-left border-collapse min-w-[700px]">
+                <table className="w-full text-left border-collapse min-w-175">
                   <thead>
-                    <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <tr className="border-b border-white/5 bg-white/2">
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Image</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Name</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Category</th>
@@ -849,7 +849,7 @@ export default function AdminPage() {
                       </tr>
                     ) : (
                       products.map(prod => (
-                        <tr key={prod.id} className="hover:bg-white/[0.02] transition-colors group">
+                        <tr key={prod.id} className="hover:bg-white/2 transition-colors group">
                           <td className="px-6 py-4">
                             <img src={prod.image} className="w-12 h-12 rounded-xl object-cover border border-white/10" alt={prod.title} />
                           </td>
@@ -892,9 +892,9 @@ export default function AdminPage() {
 
               {/* USERS TAB */}
               {activeTab === "users" && (
-                <table className="w-full text-left border-collapse min-w-[600px]">
+                <table className="w-full text-left border-collapse min-w-150">
                   <thead>
-                    <tr className="border-b border-white/5 bg-white/[0.02]">
+                    <tr className="border-b border-white/5 bg-white/2">
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">User ID</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Name</th>
                       <th className="px-6 py-4 text-[10px] tracking-widest uppercase font-black text-white/55">Email Address</th>
@@ -910,7 +910,7 @@ export default function AdminPage() {
                       </tr>
                     ) : (
                       users.map(u => (
-                        <tr key={u.id} className="hover:bg-white/[0.02] transition-colors group">
+                        <tr key={u.id} className="hover:bg-white/2 transition-colors group">
                           <td className="px-6 py-4 font-mono text-xs text-white/40">
                             #{u.id}
                           </td>
@@ -958,7 +958,7 @@ export default function AdminPage() {
 
               {/* SETTINGS TAB */}
               {activeTab === "settings" && (
-                <div className="max-w-xl mx-auto bg-gradient-to-br from-[#0b1f1a]/80 to-[#0e3a2f]/80 p-8 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-md space-y-6">
+                <div className="max-w-xl mx-auto bg-linear-to-br from-[#0b1f1a]/80 to-[#0e3a2f]/80 p-8 rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-md space-y-6">
                   <div>
                     <h3 className="text-xl font-serif text-white mb-2">🌿 Hyssop Settings</h3>
                     <p className="text-xs text-white/40 mb-6">Manage global values and administrator security settings for your dashboard.</p>
@@ -972,7 +972,7 @@ export default function AdminPage() {
                         type="text"
                         value={whatsappSetting}
                         onChange={e => setWhatsappSetting(e.target.value)}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white focus:outline-none focus:border-green-500/50"
+                        className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white focus:outline-none focus:border-green-500/50"
                         placeholder="e.g. 251952161260 (country code without +)"
                       />
                       <p className="text-[9px] text-white/30 mt-2 italic leading-relaxed">
@@ -995,7 +995,7 @@ export default function AdminPage() {
                             type="text"
                             value={editAdminUser}
                             onChange={e => setEditAdminUser(e.target.value)}
-                            className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500/50"
+                            className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500/50"
                             placeholder="Change admin username"
                           />
                         </div>
@@ -1005,7 +1005,7 @@ export default function AdminPage() {
                             type="password"
                             value={editAdminPass}
                             onChange={e => setEditAdminPass(e.target.value)}
-                            className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500/50"
+                            className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500/50"
                             placeholder="•••••••• (leave blank to keep current)"
                           />
                         </div>
@@ -1017,7 +1017,7 @@ export default function AdminPage() {
                       <button
                         onClick={handleSaveSettings}
                         disabled={savingSettings}
-                        className="px-8 py-3.5 bg-green-600 hover:bg-green-500 active:scale-[0.97] disabled:bg-white/5 disabled:text-white/30 text-white text-xs font-black uppercase tracking-widest rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2 min-w-[160px]"
+                        className="px-8 py-3.5 bg-green-600 hover:bg-green-500 active:scale-[0.97] disabled:bg-white/5 disabled:text-white/30 text-white text-xs font-black uppercase tracking-widest rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2 min-w-40"
                       >
                         💾 {savingSettings ? "Saving Settings..." : "Save All Settings"}
                       </button>
@@ -1060,7 +1060,7 @@ export default function AdminPage() {
                   type="text"
                   value={orderForm.customer_name || ""}
                   onChange={e => setOrderForm({ ...orderForm, customer_name: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                 />
               </div>
 
@@ -1071,7 +1071,7 @@ export default function AdminPage() {
                     type="email"
                     value={orderForm.customer_email || ""}
                     onChange={e => setOrderForm({ ...orderForm, customer_email: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
                 <div>
@@ -1080,7 +1080,7 @@ export default function AdminPage() {
                     type="text"
                     value={orderForm.customer_phone || ""}
                     onChange={e => setOrderForm({ ...orderForm, customer_phone: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
               </div>
@@ -1092,7 +1092,7 @@ export default function AdminPage() {
                     type="text"
                     value={orderForm.customer_country || ""}
                     onChange={e => setOrderForm({ ...orderForm, customer_country: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
                 <div>
@@ -1101,7 +1101,7 @@ export default function AdminPage() {
                     type="text"
                     value={orderForm.customer_city || ""}
                     onChange={e => setOrderForm({ ...orderForm, customer_city: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
               </div>
@@ -1112,7 +1112,7 @@ export default function AdminPage() {
                   rows={3}
                   value={orderForm.order_items || ""}
                   onChange={e => setOrderForm({ ...orderForm, order_items: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-green-500/50"
                   placeholder="e.g. Ashwagandha × 2 — $22.00"
                 />
               </div>
@@ -1124,7 +1124,7 @@ export default function AdminPage() {
                     type="text"
                     value={orderForm.total_amount || ""}
                     onChange={e => setOrderForm({ ...orderForm, total_amount: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
                 <div>
@@ -1148,7 +1148,7 @@ export default function AdminPage() {
                   type="text"
                   value={orderForm.notes || ""}
                   onChange={e => setOrderForm({ ...orderForm, notes: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                 />
               </div>
             </div>
@@ -1189,7 +1189,7 @@ export default function AdminPage() {
                   type="text"
                   value={productForm.title || ""}
                   onChange={e => setProductForm({ ...productForm, title: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   placeholder="e.g. Organic Peppermint Tea"
                 />
               </div>
@@ -1201,7 +1201,7 @@ export default function AdminPage() {
                     type="text"
                     value={productForm.price || ""}
                     onChange={e => setProductForm({ ...productForm, price: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                     placeholder="e.g. $14.00"
                   />
                 </div>
@@ -1233,7 +1233,7 @@ export default function AdminPage() {
                       type="text"
                       value={productForm.image || ""}
                       onChange={e => setProductForm({ ...productForm, image: e.target.value })}
-                      className="flex-1 bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-green-500/50 text-white placeholder-white/20"
+                      className="flex-1 bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-green-500/50 text-white placeholder-white/20"
                       placeholder="e.g. /images/product1.jpg or external https:// link"
                     />
                     <label className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-[10px] uppercase font-black tracking-widest flex items-center justify-center cursor-pointer transition-all text-white shrink-0 active:scale-95">
@@ -1256,7 +1256,7 @@ export default function AdminPage() {
                   rows={4}
                   value={productForm.description || ""}
                   onChange={e => setProductForm({ ...productForm, description: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   placeholder="Provide therapeutic and usage information..."
                 />
               </div>
@@ -1298,7 +1298,7 @@ export default function AdminPage() {
                   type="text"
                   value={userForm.name || ""}
                   onChange={e => setUserForm({ ...userForm, name: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                 />
               </div>
 
@@ -1308,7 +1308,7 @@ export default function AdminPage() {
                   type="email"
                   value={userForm.email || ""}
                   onChange={e => setUserForm({ ...userForm, email: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                  className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                 />
               </div>
 
@@ -1319,7 +1319,7 @@ export default function AdminPage() {
                     type="text"
                     value={userForm.phone || ""}
                     onChange={e => setUserForm({ ...userForm, phone: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
+                    className="w-full bg-white/4 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   />
                 </div>
                 <div>

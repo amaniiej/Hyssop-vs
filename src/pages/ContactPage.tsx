@@ -54,9 +54,9 @@ export default function ContactPage() {
 
       {/* --- DYNAMIC GLOWING BACKGROUND --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[5%] left-[-5%] w-[600px] h-[600px] bg-emerald-600/20 blur-[130px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-green-500/10 blur-[100px] rounded-full" />
-        <div className="absolute top-[40%] right-[15%] w-[400px] h-[400px] bg-amber-500/10 blur-[110px] rounded-full animate-bounce-slow" />
+        <div className="absolute top-[5%] left-[-5%] w-150 h-150 bg-emerald-600/20 blur-[130px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-5%] w-125 h-125 bg-green-500/10 blur-[100px] rounded-full" />
+        <div className="absolute top-[40%] right-[15%] w-100 h-100 bg-amber-500/10 blur-[110px] rounded-full animate-bounce-slow" />
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">
           <path d="M-100,500 C150,300 350,700 500,500 C650,300 850,700 1100,500" stroke="white" strokeWidth="0.5" fill="none" className="animate-draw" />
           <path d="M500,-100 C300,150 700,350 500,500 C300,650 700,850 500,1100" stroke="rgba(34,197,94,0.3)" strokeWidth="0.5" fill="none" />
@@ -67,7 +67,7 @@ export default function ContactPage() {
           pt-20: Reduced from pt-28 for mobile (approx 30% reduction) to lift content closer to Navbar.
           md:pt-32: Keeps the established professional spacing for desktop.
       */}
-      <main className="relative z-10 flex-grow flex items-center pt-20 md:pt-32 pb-12 px-6">
+      <main className="relative z-10 grow flex items-center pt-20 md:pt-32 pb-12 px-6">
         <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-x-12 gap-y-16 items-center lg:-translate-y-[13%]">
 
           {/* --- LEFT SIDE: THE INFO --- */}
@@ -135,7 +135,7 @@ export default function ContactPage() {
                     className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
                     Full Name
                   </label>
-                  <div className="absolute bottom-0 left-0 h-[2px] bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
                 </div>
 
                 {/* Email */}
@@ -149,7 +149,7 @@ export default function ContactPage() {
                     className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
                     Email
                   </label>
-                  <div className="absolute bottom-0 left-0 h-[2px] bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
                 </div>
               </div>
 
@@ -164,7 +164,7 @@ export default function ContactPage() {
                   className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
                   Your Message
                 </label>
-                <div className="absolute bottom-0 left-0 h-[2px] bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
+                <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
               </div>
 
               <div className="pt-6">

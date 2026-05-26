@@ -76,7 +76,7 @@ export default function Navbar() {
   return (
     <>
       {/* ── NAVBAR BAR ─────────────────────────────────────────────────── */}
-      <div className={`fixed w-full z-[5000] transition-all duration-500 px-4 md:px-6 ${isScrolled ? "top-4" : "top-0"}`}>
+      <div className={`fixed w-full z-5000 transition-all duration-500 px-4 md:px-6 ${isScrolled ? "top-4" : "top-0"}`}>
         <nav className={`max-w-7xl mx-auto flex justify-between items-center px-5 md:px-8 py-3.5 md:py-4 transition-all duration-500 rounded-full border
           ${isScrolled
             ? "bg-[#0b1f1a]/70 backdrop-blur-2xl border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
@@ -133,7 +133,7 @@ export default function Navbar() {
               >
                 Shop Now
                 <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_10px_rgba(74,222,128,0.4)] transition-all duration-300 group-hover:bg-green-500/40" />
-                <div className="absolute inset-0 -z-10 rounded-full p-[1px]"
+                <div className="absolute inset-0 -z-10 rounded-full p-px"
                   style={{ background: "linear-gradient(180deg,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%)", WebkitMask: "linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0)", WebkitMaskComposite: "xor" }} />
                 <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden pointer-events-none">
                   <div className="absolute inset-0 w-1/2 h-full bg-white/10 -skew-x-45 -translate-x-full group-hover:animate-shimmer" />
@@ -144,7 +144,7 @@ export default function Navbar() {
             {/* Hamburger — mobile only */}
             <button
               onClick={() => setMenuOpen(o => !o)}
-              className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-[5px] cursor-pointer z-[6000] group"
+              className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.25 cursor-pointer z-6000 group"
               aria-label="Toggle menu"
             >
               {/* Three lines that animate into X */}
@@ -159,22 +159,22 @@ export default function Navbar() {
         </nav>
 
         {/* Shimmer line */}
-        <div className={`max-w-7xl mx-auto h-[1px] mt-2 overflow-hidden px-10 transition-opacity duration-700 ${isScrolled ? "opacity-20" : "opacity-0"}`}>
-          <div className="h-full bg-gradient-to-r from-transparent via-green-400 to-transparent animate-shimmer-line" style={{ width: "100%" }} />
+        <div className={`max-w-7xl mx-auto h-px mt-2 overflow-hidden px-10 transition-opacity duration-700 ${isScrolled ? "opacity-20" : "opacity-0"}`}>
+          <div className="h-full bg-linear-to-r from-transparent via-green-400 to-transparent animate-shimmer-line" style={{ width: "100%" }} />
         </div>
       </div>
 
       {/* ── MOBILE MENU OVERLAY ─────────────────────────────────────────── */}
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[4990] bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden
+        className={`fixed inset-0 z-4990 bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden
           ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={() => setMenuOpen(false)}
       />
 
       {/* Drawer panel — slides in from the right */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[4995] w-[78vw] max-w-[320px] flex flex-col
+        className={`fixed top-0 right-0 bottom-0 z-4995 w-[78vw] max-w-[320px] flex flex-col
           transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] md:hidden`}
         style={{
           transform:      menuOpen ? "translateX(0)" : "translateX(100%)",
@@ -185,7 +185,7 @@ export default function Navbar() {
         }}
       >
         {/* Drawer top — logo repeat + close hint */}
-        <div className="px-7 pt-20 pb-8 border-b border-white/[0.06]">
+        <div className="px-7 pt-20 pb-8 border-b border-white/6">
           <p className="text-[9px] text-green-400/60 uppercase tracking-[0.5em] font-black">Navigate</p>
         </div>
 
@@ -208,7 +208,7 @@ export default function Navbar() {
               >
                 {/* Active indicator bar */}
                 <span
-                  className={`absolute left-0 top-1/2 -translate-y-1/2 w-[2px] rounded-full transition-all duration-300
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 w-0.5 rounded-full transition-all duration-300
                     ${isActive ? "h-6 bg-green-400 shadow-[0_0_8px_#4ade80]" : "h-0 bg-transparent"}`}
                 />
 
@@ -234,7 +234,7 @@ export default function Navbar() {
         </nav>
 
         {/* Drawer bottom — socials + shop button */}
-        <div className="px-7 py-7 border-t border-white/[0.06] flex flex-col gap-5">
+        <div className="px-7 py-7 border-t border-white/6 flex flex-col gap-5">
           {/* Socials */}
           <div className="flex items-center gap-5 text-gray-500">
             <a href="https://www.instagram.com/hyssop_herbs_and_wellness" target="_blank" rel="noreferrer"
@@ -253,7 +253,7 @@ export default function Navbar() {
             >
               Shop Now
               <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_14px_rgba(74,222,128,0.35)] transition-all duration-300 group-hover:bg-green-500/35" />
-              <div className="absolute inset-0 -z-10 rounded-full p-[1px]"
+              <div className="absolute inset-0 -z-10 rounded-full p-px"
                 style={{ background: "linear-gradient(180deg,rgba(255,255,255,0.3) 0%,rgba(255,255,255,0) 100%)", WebkitMask: "linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0)", WebkitMaskComposite: "xor" }} />
             </button>
           </div>

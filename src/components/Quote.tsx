@@ -25,7 +25,7 @@ export default function Quote() {
       
       {/* --- CREATIVE ARTISTIC ELEMENTS --- */}
       <svg 
-        className="absolute top-0 left-0 w-[400px] h-auto opacity-20 pointer-events-none animate-drift" 
+        className="absolute top-0 left-0 w-100 h-auto opacity-20 pointer-events-none animate-drift" 
         viewBox="0 0 400 400" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
@@ -39,11 +39,11 @@ export default function Quote() {
       <div className="relative z-10 w-full max-w-none text-center">
         
         <div className="flex items-center justify-center gap-3 mb-6">
-          <div className="h-[1px] w-8 bg-green-500/50" />
+          <div className="h-px w-8 bg-green-500/50" />
           <span className="text-xs tracking-[0.4em] uppercase text-green-400 font-bold">
             The Hyssop Way
           </span>
-          <div className="h-[1px] w-8 bg-green-500/50" />
+          <div className="h-px w-8 bg-green-500/50" />
         </div>
 
         <h2 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">

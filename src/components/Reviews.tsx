@@ -47,9 +47,9 @@ export default function Reviews() {
         {/* Section Header */}
         <div className="text-center mb-16 px-6">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="h-[2px] w-8 bg-amber-500" />
+            <div className="h-0.5 w-8 bg-amber-500" />
             <span className="text-[10px] tracking-[0.5em] uppercase text-amber-500 font-black">Sacred Testimonials</span>
-            <div className="h-[2px] w-8 bg-amber-500" />
+            <div className="h-0.5 w-8 bg-amber-500" />
           </div>
           <h3 className="text-4xl md:text-5xl font-serif text-white">
             Witnessed <span className="italic text-green-400 font-light">Benefits</span>
@@ -86,8 +86,8 @@ export default function Reviews() {
           </div>
 
           {/* Gradient Fades for Smoothness */}
-          <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-[#0b1f1a] to-transparent z-20" />
-          <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#0b1f1a] to-transparent z-20" />
+          <div className="absolute top-0 left-0 w-40 h-full bg-linear-to-r from-[#0b1f1a] to-transparent z-20" />
+          <div className="absolute top-0 right-0 w-40 h-full bg-linear-to-l from-[#0b1f1a] to-transparent z-20" />
         </div>
       </div>
 

@@ -71,7 +71,7 @@ export default function Products() {
   // Modal rendered via portal
   const modal = selectedProduct ? createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-xl animate-fadeIn px-4"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-black/85 backdrop-blur-xl animate-fadeIn px-4"
       style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
       onClick={() => setSelectedProduct(null)}
     >
@@ -89,7 +89,7 @@ export default function Products() {
 
         <div className="md:w-5/12 h-56 md:h-auto relative shrink-0">
           <img src={selectedProduct.image} className="w-full h-full object-cover" alt={selectedProduct.title} />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0b1f1a]/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-transparent to-[#0b1f1a]/40" />
         </div>
 
         <div className="relative z-10 md:w-7/12 p-10 md:p-14 flex flex-col justify-between">
@@ -97,7 +97,7 @@ export default function Products() {
             <span className="text-green-400 text-[10px] tracking-[0.5em] uppercase mb-2 block font-black">{selectedProduct.category}</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-3 text-white leading-tight">{selectedProduct.title}</h2>
             <p className="text-2xl font-bold text-white/90 mb-6">{selectedProduct.price}</p>
-            <div className="h-[1px] w-12 bg-green-500/40 mb-8" />
+            <div className="h-px w-12 bg-green-500/40 mb-8" />
             <p className="text-gray-300 leading-relaxed font-light text-base italic">
               {selectedProduct.description}
             </p>
@@ -130,8 +130,8 @@ export default function Products() {
         
         {/* Living background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-green-500/10 blur-[130px] rounded-full animate-pulse-slow" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-600/10 blur-[110px] rounded-full animate-pulse-slow delay-1000" />
+          <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-green-500/10 blur-[130px] rounded-full animate-pulse-slow" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-emerald-600/10 blur-[110px] rounded-full animate-pulse-slow delay-1000" />
           
           <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1000 1000">
             <path d="M-100,200 C200,50 400,500 600,200 S900,50 1100,200" stroke="white" strokeWidth="0.5" fill="none" className="animate-draw-line" />
@@ -162,10 +162,10 @@ export default function Products() {
           {/* Products grid */}
           <div className="grid md:grid-cols-3 gap-12 justify-items-center">
             {products.map((product) => (
-              <div key={product.id} className="group w-full max-w-[300px] [perspective:1200px]">
+              <div key={product.id} className="group w-full max-w-75 perspective-distant">
                 <div
                   onClick={() => setSelectedProduct(product)}
-                  className="relative h-[320px] rounded-[40px] overflow-hidden cursor-pointer transition-all duration-700 ease-out transform-gpu [transform-style:preserve-3d] [transform:rotateY(-8deg)] group-hover:[transform:rotateY(12deg)_rotateX(2deg)] group-hover:shadow-[rgba(34,197,94,0.2)_-20px_40px_50px_0px]"
+                  className="relative h-80 rounded-[40px] overflow-hidden cursor-pointer transition-all duration-700 ease-out transform-gpu transform-3d group-hover:transform-[rotateY(12deg)_rotateX(2deg)] group-hover:shadow-[rgba(34,197,94,0.2)_-20px_40px_50px_0px]"
                   style={{
                     background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
                     border: "1px solid rgba(255,255,255,0.1)"
@@ -173,14 +173,14 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 
-                  <div className="absolute inset-[10px] rounded-[32px] border border-white/10 bg-white/[0.02] backdrop-blur-[4px] overflow-hidden [transform:translateZ(30px)]">
+                  <div className="absolute inset-2.5 rounded-4xl border border-white/10 bg-white/2 backdrop-blur-xs overflow-hidden transform-[translateZ(30px)]">
                     <div className="relative h-[60%] w-full overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale-30 group-hover:grayscale-0"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f1a] via-[#0b1f1a]/10 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#0b1f1a] via-[#0b1f1a]/10 to-transparent" />
                     </div>
 
                     <div className="px-6 py-4">
@@ -208,7 +208,7 @@ export default function Products() {
               >
                 Browse Full Catalog
                 <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_12px_rgba(74,222,128,0.4)] transition-all duration-300 group-hover:bg-green-500/40 group-hover:shadow-[0_0_25px_rgba(34,197,94,0.3)]" />
-                <div className="absolute inset-0 -z-10 rounded-full p-[1px]" 
+                <div className="absolute inset-0 -z-10 rounded-full p-px" 
                   style={{
                     background: 'linear-gradient(180deg, rgba(134,239,172,0.4) 0%, rgba(134,239,172,0) 100%)',
                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
