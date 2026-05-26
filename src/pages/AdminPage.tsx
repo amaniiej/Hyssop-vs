@@ -704,13 +704,7 @@ export default function AdminPage() {
             >
               Products ({products.length})
             </button>
-            <button
-              onClick={() => setActiveTab("users")}
-              className={`px-6 py-2.5 rounded-xl text-xs uppercase tracking-widest font-black transition-all cursor-pointer ${activeTab === "users" ? "bg-green-600 text-white shadow-lg" : "text-white/50 hover:text-white"
-                }`}
-            >
-              Users ({users.length})
-            </button>
+            
             <button
               onClick={() => setActiveTab("settings")}
               className={`px-6 py-2.5 rounded-xl text-xs uppercase tracking-widest font-black transition-all cursor-pointer ${activeTab === "settings" ? "bg-green-600 text-white shadow-lg" : "text-white/50 hover:text-white"
