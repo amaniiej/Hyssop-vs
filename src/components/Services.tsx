@@ -13,19 +13,19 @@ export default function Services() {
   const [showCalendly, setShowCalendly] = useState(false);
 
   const services = [
-    { name: "100% Organic Herbs",     accent: "emerald", large: true  },
-    { name: "Liver Health",           accent: "green",   large: false },
-    { name: "Blood Sugar Balance",    accent: "teal",    large: false },
-    { name: "Hypertension Care",      accent: "teal",    large: false },
-    { name: "Gut & Intestine Healing",accent: "emerald", large: true  },
-    { name: "Insomnia Relief",        accent: "indigo",  large: false },
-    { name: "Anxiety & Stress Care",  accent: "indigo",  large: false },
-    { name: "Labor Support",          accent: "amber",   large: false },
-    { name: "Menstrual Wellness",     accent: "rose",    large: false },
-    { name: "Hormonal Balance",       accent: "emerald", large: true  },
-    { name: "Fertility Guidance",     accent: "amber",   large: false },
-    { name: "Expert Consultations",   accent: "green",   large: false },
-    { name: "Wellness Monitoring",    accent: "teal",    large: false },
+    { name: "100% Organic የሆኑ ኸርቦች",     accent: "emerald", large: true  },
+    { name: "ለጉበት",           accent: "green",   large: false },
+    { name: "ለስኳር",    accent: "teal",    large: false },
+    { name: "ለደም ግፊት",      accent: "teal",    large: false },
+    { name: "ለአንጀት",accent: "emerald", large: true  },
+    { name: "ለእንቅልፍ ማጣት",        accent: "indigo",  large: false },
+    { name: "ለጭንቀት",  accent: "indigo",  large: false },
+    { name: "ለምጥ",          accent: "amber",   large: false },
+    { name: "ለፔሬድ",     accent: "rose",    large: false },
+    { name: "ያለ እድሜ ለማረጥ",       accent: "emerald", large: true  },
+    { name: "ለመፀነስ ችግር",     accent: "amber",   large: false },
+    { name: "ለማንኛውንም አይነት ሆርሞን ችግር",   accent: "green",   large: false },
+    { name: "በባለሞያ (herbalists ) የሚታገዙ ምክሮች",    accent: "teal",    large: false },
   ];
 
   const accentMap: Record<string, { border: string; glow: string; dot: string }> = {
@@ -210,7 +210,7 @@ export default function Services() {
                 Healing <em className="text-green-400 italic">Offerings</em>
               </h2>
               <p className="text-gray-400/80 text-sm md:text-base font-light max-w-xl mx-auto italic leading-relaxed">
-                Ancient botanical wisdom meets modern wellness — a pathway toward lasting balance.
+                በ Hyssop herbs & wellness የምንሰጣቸው አገልግሎቶች
               </p>
             </div>
 
