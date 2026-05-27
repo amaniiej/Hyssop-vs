@@ -56,9 +56,8 @@ export default function CTA() {
             <span className="italic">Your Sacred Return?</span>
           </h3>
           
-          <p className="text-gray-400 text-lg md:text-xl max-w-lg mb-10 font-light leading-relaxed">
-            Step away from the noise of modern living and rediscover the 
-            healing rhythm of the earth. Your journey to wellness is one click away.
+          <p className="text-gray-100 text-lg md:text-xl max-w-lg mb-10 font-light leading-relaxed">
+            ከዘመናዊው ሕይወት ጫጫታ ፈቀቅ ይበሉና የምድርን የፈውስ ጥበብ መልሰው ያግኙ። ወደ ጤና የሚወስደው ጉዞዎ በአንድ ዉሳኔ ብቻ ይጀምራል።
           </p>
 
           {/* THE BUTTON: REWRITTEN WITH TANIADOU DNA */}

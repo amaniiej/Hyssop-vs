@@ -44,11 +44,8 @@ export default function Story() {
               The Journey to <br />
               <span className="italic text-green-400 font-light">Wellness is:</span>
             </h3>
-            <p className="text-gray-400 text-lg font-light leading-relaxed max-w-xl italic border-l border-green-500/30 pl-6">
-              Wellness is not a destination, but a rhythmic return to the earth. 
-              We believe that true restoration occurs when ancient botanical 
-              traditions are honored with modern scientific precision, creating 
-              a bridge between the physical and the spiritual.
+            <p className="text-gray-100 text-lg font-light leading-relaxed max-w-xl italic border-l border-green-500/30 pl-6">
+              ጤና ሕይወትን የማደስ ሂደት እንጂ ግብ አይደለም፤ ከተፈጥሮ ጋር መዋሃድ ነው። እውነተኛ ፈውስ የሚገኘው ጥንታዊ የእፅዋት ጥበብ ከዘመናዊ ሳይንስ ጋር ሲዋሃድ እና በሥጋና በመንፈስ መካከል ድልድይ ሲገነባ ነው።
             </p>
           </div>
 

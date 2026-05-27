@@ -76,8 +76,8 @@ export default function ContactPage() {
               <h2 className="text-5xl md:text-6xl lg:text-8xl font-serif leading-tight text-white mb-4 md:mb-6">
                 Contact <span className="italic text-green-400">Us</span>
               </h2>
-              <p className="text-gray-300 text-base md:text-lg font-light max-w-md leading-relaxed border-l-2 border-green-500/30 pl-6">
-                Connect with our global branches for expert guidance on your healing journey.
+              <p className="text-gray-100 text-base md:text-lg font-light max-w-md leading-relaxed border-l-2 border-green-500/30 pl-6">
+                ለፈውስ ጉዞዎ የባለሙያ ምክር ለማግኘት በዓለም ዙሪያ ካሉ ቅርንጫፎቻችን ጋር ይገናኙ።
               </p>
             </header>
 
