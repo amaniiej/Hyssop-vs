@@ -1,12 +1,17 @@
-import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import for Vercel routing fix
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
 
 export default function Services() {
   const canvasRef  = useRef<HTMLCanvasElement>(null);
   const mouseRef   = useRef({ x: 0.5, y: 0.5 });
   const targetRef  = useRef({ x: 0.5, y: 0.5 });
   const sectionRef = useRef<HTMLDivElement>(null);
-  const navigate   = useNavigate(); // Hook for navigation
+  const navigate   = useNavigate(); 
+  const savedScrollY = useRef(0);
+
+  const [showCalendly, setShowCalendly] = useState(false);
 
   const services = [
     { name: "100% Organic Herbs",     accent: "emerald", large: true  },
@@ -33,6 +38,30 @@ export default function Services() {
     rose:    { border: "rgba(251,113,133,0.20)", glow: "rgba(251,113,133,0.06)", dot: "#fb7185" },
   };
 
+  // ─── SCROLL LOCK LOGIC (Breathtaking Style) ───
+  useEffect(() => {
+    if (showCalendly) {
+      savedScrollY.current = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top      = `-${savedScrollY.current}px`;
+      document.body.style.left     = "0";
+      document.body.style.right    = "0";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.position = "";
+      document.body.style.top      = "";
+      document.body.style.left     = "";
+      document.body.style.right    = "";
+      document.body.style.overflow = "";
+      window.scrollTo({ top: savedScrollY.current, behavior: "instant" as any });
+    }
+    return () => {
+      document.body.style.position = "";
+      document.body.style.overflow = "";
+    };
+  }, [showCalendly]);
+
+  // ─── CANVAS ANIMATION LOGIC ───
   useEffect(() => {
     const canvas  = canvasRef.current;
     const section = sectionRef.current;
@@ -108,6 +137,40 @@ export default function Services() {
     };
   }, []);
 
+  // ─── MODAL RENDERED VIA PORTAL (Immune to parent transforms) ───
+  const calendlyModal = showCalendly ? createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-xl animate-fadeIn px-4"
+      style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
+      onClick={() => setShowCalendly(false)}
+    >
+      <div
+        className="relative w-full max-w-5xl h-[90vh] bg-[#0b1f1a]/80 backdrop-blur-[60px] border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl"
+        style={{ boxShadow: "0 0 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.07)" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setShowCalendly(false)}
+          className="absolute top-6 right-6 z-50 bg-white/5 backdrop-blur-md w-10 h-10 rounded-full flex items-center justify-center text-white/40 hover:text-white border border-white/10 transition-all cursor-pointer"
+        >
+          <FaTimes />
+        </button>
+
+        <iframe
+          src="https://calendly.com/amanii22ej/15min-consultation-event?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0b1f1a&text_color=ffffff&primary_color=22c55e"
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          className="relative z-10"
+          title="Select a Date & Time"
+        ></iframe>
+
+        <div className="absolute bottom-0 left-0 w-full h-12 bg-linear-to-t from-[#0b1f1a] to-transparent z-20 pointer-events-none" />
+      </div>
+    </div>,
+    document.body
+  ) : null;
+
   return (
     <section id="services" className="relative overflow-hidden flex flex-col justify-center" style={{ background: "#0b1f1a" }}>
       <div className="absolute top-0 left-0 right-0 h-36 pointer-events-none z-20" style={{ background: "linear-gradient(to bottom, #0b1f1a 0%, transparent 100%)" }} />
@@ -124,7 +187,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Sacred Rituals Label - High Brightness */}
       <div className="relative z-30 flex justify-center" style={{ marginTop: "-2.5rem" }}>
         <div className="flex items-center gap-3">
           <div className="h-px w-12 bg-linear-to-r from-transparent via-amber-400" />
@@ -139,30 +201,25 @@ export default function Services() {
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ mixBlendMode: "screen" }} />
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 45%, rgba(34,197,94,0.05) 0%, transparent 65%)" }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          {/* Header */}
-          <div className="text-center mb-20">
+        <div className="relative z-10 max-w-screen-xl mx-auto w-full">
+          <div className="text-center mb-14">
             <h2 className="text-5xl md:text-7xl font-serif text-white mb-5 leading-tight">
               Healing <em className="text-green-400" style={{ fontStyle: "italic" }}>Offerings</em>
             </h2>
-            <p className="text-gray-400/80 text-sm md:text-base font-light max-w-xl mx-auto italic leading-relaxed">
+            <p className="text-gray-400/80 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed italic">
               Ancient botanical wisdom meets modern wellness — a pathway toward lasting balance.
             </p>
           </div>
 
-          {/* Bubble cloud with TaniaDou DNA */}
           <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-6 md:gap-y-10 w-full mb-24">
             {services.map((svc, i) => {
               const ac = accentMap[svc.accent];
               return (
                 <div key={i} className="group relative cursor-default" style={{ animation: `pill-float ${11 + (i % 6)}s ease-in-out infinite`, animationDelay: `${i * 0.35}s` }}>
                   <div className="absolute inset-0 rounded-full pointer-events-none" style={{ border: `1px solid ${ac.border}`, animation: `halo-breathe ${7 + (i % 4)}s ease-in-out infinite`, animationDelay: `${i * 0.5}s`, transform: "scale(1.22)", filter: "blur(1.5px)" }} />
-                  
-                  {/* Bubble Content with TaniaDou Style Masking & Inset Shadow */}
                   <div className="relative flex items-center gap-2.5 rounded-full backdrop-blur-xl transition-all duration-700 overflow-hidden shadow-[inset_0_0_12px_rgba(255,255,255,0.05)] border border-white/5"
                     style={{ padding: svc.large ? "12px 32px" : "10px 24px", background: "rgba(255,255,255,0.03)" }}
                   >
-                    {/* The TaniaDou Masked Border effect applied to bubbles */}
                     <div className="absolute inset-0 p-px opacity-20 group-hover:opacity-100 transition-opacity" 
                          style={{
                            background: `linear-gradient(180deg, ${ac.dot} 0%, transparent 100%)`,
@@ -170,7 +227,6 @@ export default function Services() {
                            WebkitMaskComposite: 'xor'
                          }} 
                     />
-                    
                     <span className="shrink-0 rounded-full" style={{ width: "5px", height: "5px", background: ac.dot, boxShadow: `0 0 8px ${ac.dot}` }} />
                     <span className="font-serif text-white/90 group-hover:text-white whitespace-nowrap tracking-wide transition-colors duration-500" style={{ fontSize: svc.large ? "18px" : "15px" }}>
                       {svc.name}
@@ -181,33 +237,37 @@ export default function Services() {
             })}
           </div>
 
-          {/* THE BIG BUTTON: TaniaDou Style Consultation CTA */}
-          <div className="flex flex-col items-center gap-6">
-            <p className="text-gray-500/70 text-[10px] tracking-[0.4em] uppercase font-black">Personalized Healing Guidance</p>
-            
-            <div onClick={() => navigate("/contact")} className="relative group cursor-pointer">
-              <button className="relative px-14 py-5 bg-transparent border-none text-white font-black uppercase tracking-[0.4em] text-[11px] cursor-pointer z-10 transition-transform active:scale-95">
-                Book a Consultation Call
-                {/* Base Layer */}
-                <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-amber-500/10 shadow-[inset_0_0_20px_rgba(251,191,36,0.3)] transition-all duration-300 group-hover:bg-amber-500/20 group-hover:shadow-[0_0_35px_rgba(251,191,36,0.25)]" />
-                {/* TaniaDou Border DNA */}
-                <div className="absolute inset-0 -z-10 rounded-full p-px" 
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0) 100%)',
-                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskComposite: 'xor'
-                  }} 
-                />
-              </button>
-            </div>
-          </div>
+          <div className="flex flex-col items-center gap-8 mt-10">
+             <p className="text-gray-500/70 text-[11px] tracking-[0.3em] uppercase font-black">Begin your restoration</p>
+             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              
+                {/* BOOK A CALL */}
+                <div onClick={() => setShowCalendly(true)} className="relative group cursor-pointer">
+                  <button className="relative px-12 py-5 bg-transparent border-none text-white font-bold text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
+                    Book A Consultation Call
+                    <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-amber-500/10 shadow-[inset_0_0_12px_rgba(251,191,36,0.3)] transition-all duration-300 group-hover:bg-amber-500/30 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.2)]" />
+                    <div className="absolute inset-0 -z-10 rounded-full p-px" 
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(251,191,36,0.4) 0%, rgba(251,191,36,0) 100%)',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMaskComposite: 'xor'
+                      }} 
+                    />
+                  </button>
+                </div>
 
+             </div>
+          </div>
         </div>
       </div>
+
+      {calendlyModal}
 
       <style>{`
         @keyframes pill-float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         @keyframes halo-breathe { 0%, 100% { opacity: 0.5; transform: scale(1.2); } 50% { opacity: 0; transform: scale(1.5); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
       `}</style>
     </section>
   );
