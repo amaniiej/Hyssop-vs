@@ -154,7 +154,7 @@ export default function Services() {
         >✕</button>
 
         <iframe
-          src="https://calendly.com/amanii22ej/15min-consultation-event?hide_event_type_details=1&hide_gdpr_banner=1&background_color=061411&text_color=ffffff&primary_color=22c55e"
+          src="https://calendly.com/hyssopherbswelness/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=061411&text_color=ffffff&primary_color=22c55e"
           width="100%"
           height="100%"
           frameBorder="0"
