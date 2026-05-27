@@ -31,7 +31,7 @@ export default function Hero() {
       document.body.style.left = "";
       document.body.style.right = "";
       document.body.style.overflow = "";
-      window.scrollTo({ top: savedScrollY.current, behavior: "instant" as any });
+      window.scrollTo({ top: savedScrollY.current, behavior: "instant" as ScrollBehavior });
     }
     return () => {
       document.body.style.position = "";
