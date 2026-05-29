@@ -26,7 +26,7 @@ export default function Navbar() {
       contact: "Contact Us",
       shopBtn: "Shop Now",
       navigate: "Navigate",
-      langToggle: "አማርኛ"
+      langToggle: "አማ"
     },
     am: {
       home: "መነሻ",
@@ -37,7 +37,7 @@ export default function Navbar() {
       contact: "እኛን ያገኙ",
       shopBtn: "አሁኑኑ ይግዙ",
       navigate: "ይምረጡ",
-      langToggle: "English"
+      langToggle: "En"
     }
   };
 
