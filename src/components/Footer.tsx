@@ -48,7 +48,9 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <FaPhoneAlt className="text-emerald-400 text-xs" />
-                <p className="text-gray-300 text-sm font-light">+251 952 161 260</p>
+                <p className="text-gray-300 text-sm font-light">+251 952 161 260</p>                
+                <p className="text-gray-300 text-sm font-light">or</p>
+                <p className="text-gray-300 text-sm font-light">+251 998 267 544</p>
               </div>
             </div>
           </div>

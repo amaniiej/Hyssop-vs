@@ -25,7 +25,7 @@ export default function Services() {
     { name: "ያለ እድሜ ለማረጥ",       accent: "emerald", large: true  },
     { name: "ለመፀነስ ችግር",     accent: "amber",   large: false },
     { name: "ለማንኛውንም አይነት ሆርሞን ችግር",   accent: "green",   large: false },
-    { name: "በባለሞያ (herbalists ) የሚታገዙ ምክሮች",    accent: "teal",    large: false },
+    { name: "በባለሞያ (herbalists) የሚታገዙ ምክሮች",    accent: "teal",    large: false },
   ];
 
   const accentMap: Record<string, { border: string; glow: string; dot: string }> = {
