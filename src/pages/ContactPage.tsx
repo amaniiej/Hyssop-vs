@@ -89,8 +89,9 @@ export default function ContactPage() {
                   <span className="text-[10px] tracking-[0.4em] uppercase font-black opacity-70 group-hover:opacity-100 transition-opacity">Addis Ababa HQ</span>
                 </div>
                 <div className="pl-8 border-l border-white/10 group-hover:border-green-500 transition-all">
-                  <p className="text-white text-lg font-serif leading-tight">Bole kekere 1st floor # 1-012/5</p>
-                  <p className="text-green-400 font-bold mt-2 text-sm tracking-widest">+{whatsappNumber}</p>
+                  <p className="text-white text-lg font-serif leading-tight">Bole, Kekere building 1st floor room 1-012/5</p>
+                  <p className="text-green-400 font-bold mt-2 text-sm tracking-widest">+251 99 826 7544</p>
+                  <p className="text-green-400 font-bold mt-2 text-sm tracking-widest">+251 95 216 1260</p>
                 </div>
               </a>
 

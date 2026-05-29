@@ -2,14 +2,14 @@ import { FaStar } from "react-icons/fa";
 
 export default function Reviews() {
   const testimonials = [
-    { name: "Sarah J.", herb: "Agrimony Herb", text: "The Agrimony infusion has been a game-changer for my digestion. I feel lighter and more balanced." },
-    { name: "Marcus T.", herb: "Artemisia Abyssinica", text: "Incredible quality. The Artemisia has a profound energy that cleared my paths like nothing else." },
-    { name: "Elena R.", herb: "Ashwagandha", text: "Finally, a natural way to manage stress. This Ashwagandha is pure potency. My sleep has doubled." },
-    { name: "Amara W.", herb: "Calendula Flower", text: "These flowers make the most soothing oil. It’s like a warm, healing hug from nature itself." },
-    { name: "David K.", herb: "Blood Purifier Blend", text: "I noticed a difference in my skin clarity within two weeks. Truly healing from the inside out." },
-    { name: "Jordan P.", herb: "Castor Oil", text: "Liquid gold. My hair feels thicker and my skin is glowing. Exceptional cold-pressed purity." },
-    { name: "Sophia L.", herb: "Chasteberry", text: "A sacred gift for women's wellness. For the first time in years, my cycle feels regulated." },
-    { name: "Michael B.", herb: "Colon Cleanser", text: "Gentle yet effective. It helped me reset my system after months of feeling sluggish. A must-have." }
+    { name: "Mekdes", herb: "Agrimony Herb", text: "The Agrimony infusion has been a game-changer for my digestion. I feel lighter and more balanced." },
+    { name: "Yared", herb: "Artemisia Abyssinica", text: "Incredible quality. The Artemisia has a profound energy that cleared my paths like nothing else." },
+    { name: "Dawit", herb: "Ashwagandha", text: "Finally, a natural way to manage stress. This Ashwagandha is pure potency. My sleep has doubled." },
+    { name: "Mena", herb: "Calendula Flower", text: "These flowers make the most soothing oil. It’s like a warm, healing hug from nature itself." },
+    { name: "Senite", herb: "Blood Purifier Blend", text: "I noticed a difference in my skin clarity within two weeks. Truly healing from the inside out." },
+    { name: "Mahder", herb: "Castor Oil", text: "Liquid gold. My hair feels thicker and my skin is glowing. Exceptional cold-pressed purity." },
+    { name: "Abeba", herb: "Chasteberry", text: "A sacred gift for women's wellness. For the first time in years, my cycle feels regulated." },
+    { name: "Mentesnot", herb: "Colon Cleanser", text: "Gentle yet effective. It helped me reset my system after months of feeling sluggish. A must-have." }
   ];
 
   // Logic for the Aligned Grid of 15 Logos

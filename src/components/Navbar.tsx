@@ -51,7 +51,11 @@ export default function Navbar() {
     window.dispatchEvent(new Event("languageChange"));
   };
 
-  useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+   useEffect(() => {
+     if (menuOpen) {
+       setMenuOpen(false);
+     }
+   }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
