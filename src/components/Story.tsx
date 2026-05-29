@@ -1,5 +1,21 @@
 import { FaMicroscope, FaMagic, FaLeaf } from "react-icons/fa";
 
+// Deterministic pseudo-random generator (stable across renders)
+function seededRandom(seed: number) {
+  return ((seed * 9301 + 49297) % 233280) / 233280;
+}
+
+// Floating seeds component with deterministic positions
+function FloatingSeeds() {
+  return [...Array(6)].map((_, i) => (
+    <div key={i} className="absolute w-0.5 h-0.5 bg-white/20 rounded-full animate-seed-float" style={{ 
+      top: `${seededRandom(i * 2) * 100}%`, 
+      left: `${seededRandom(i * 3) * 100}%`, 
+      animationDelay: `${i * 2}s` 
+    }} />
+  ));
+}
+
 export default function Story() {
   return (
     <section id="story" className="relative py-16 px-6 overflow-hidden bg-[#0b1f1a]">
@@ -28,9 +44,7 @@ export default function Story() {
         </svg>
 
         {/* 5. Floating Seeds */}
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="absolute w-0.5 h-0.5 bg-white/20 rounded-full animate-seed-float" style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${i * 2}s` }} />
-        ))}
+        <FloatingSeeds />
       </div>
 
       {/* --- CONTENT (MOVED TO LEFT) --- */}
