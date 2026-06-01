@@ -105,7 +105,7 @@ export default function ContactPage() {
             </div>
 
             {/* Email Contact */}
-            <div className="pt-2">
+            <div className="-mt-5">
               <a href="mailto:Hyssopherbswelness@gmail.com" className="group flex items-center gap-4 hover:translate-x-2 transition-transform">
                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-green-500 group-hover:border-green-500 transition-all">
                   <FaEnvelope className="text-xs text-green-300 group-hover:text-white" />
@@ -180,7 +180,7 @@ export default function ContactPage() {
               <div className="pt-6">
                 <button type="submit"
                   className="group flex items-center gap-6 md:gap-10 bg-transparent text-white uppercase tracking-[0.5em] text-[11px] font-black hover:text-green-400 transition-all cursor-pointer">
-                  <span>Send Ritual Inquiry</span>
+                  <span>Send Inquiry</span>
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-green-600 group-hover:border-green-600 group-hover:text-white transition-all shadow-[0_0_30px_rgba(34,197,94,0.15)]">
                     <FaPaperPlane className="text-xs" />
                   </div>
