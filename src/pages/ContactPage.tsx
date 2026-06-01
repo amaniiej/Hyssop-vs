@@ -42,7 +42,7 @@ export default function ContactPage() {
       alert("Please fill in all fields.");
       return;
     }
-    
+
     const whatsappText = `🌿 *HYSSOP HERBS - INQUIRY* 🌿\n----------------------------------------\n*From:* ${name}\n*Email:* ${email}\n*Message:* ${message}\n----------------------------------------\n`;
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(whatsappText)}`;
     window.open(whatsappUrl, "_blank");
@@ -63,10 +63,6 @@ export default function ContactPage() {
         </svg>
       </div>
 
-      {/* --- MAIN CONTENT ---
-          pt-20: Reduced from pt-28 for mobile (approx 30% reduction) to lift content closer to Navbar.
-          md:pt-32: Keeps the established professional spacing for desktop.
-      */}
       <main className="relative z-10 grow flex items-center pt-20 md:pt-32 pb-12 px-6">
         <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-x-12 gap-y-16 items-center lg:-translate-y-[13%]">
 
@@ -125,15 +121,20 @@ export default function ContactPage() {
           <div className="w-full max-w-md lg:ml-auto">
             <form onSubmit={handleSubmit} className="space-y-12 relative">
               <div className="grid md:grid-cols-2 gap-10">
+
                 {/* Name */}
                 <div className="relative group">
-                  <input type="text" required
+                  <input
+                    type="text"
+                    required
+                    placeholder=" "
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm focus:outline-none transition-all placeholder-transparent"
-                    id="name" />
+                    className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm text-white focus:outline-none transition-all placeholder-transparent"
+                    id="name"
+                  />
                   <label htmlFor="name"
-                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
+                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                     Full Name
                   </label>
                   <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
@@ -141,13 +142,17 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="relative group">
-                  <input type="email" required
+                  <input
+                    type="email"
+                    required
+                    placeholder=" "
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm focus:outline-none transition-all placeholder-transparent"
-                    id="email" />
+                    className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm text-white focus:outline-none transition-all placeholder-transparent"
+                    id="email"
+                  />
                   <label htmlFor="email"
-                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
+                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                     Email
                   </label>
                   <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
@@ -156,13 +161,17 @@ export default function ContactPage() {
 
               {/* Message */}
               <div className="relative group pt-4">
-                <textarea rows={4} required
+                <textarea
+                  rows={4}
+                  required
+                  placeholder=" "
                   value={message}
                   onChange={e => setMessage(e.target.value)}
-                  className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm focus:outline-none transition-all placeholder-transparent resize-none"
-                  id="msg" />
+                  className="peer w-full bg-transparent border-b border-white/20 py-3 text-sm text-white focus:outline-none transition-all placeholder-transparent resize-none"
+                  id="msg"
+                />
                 <label htmlFor="msg"
-                  className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-200 uppercase transition-all peer-focus:-top-6 peer-focus:text-green-400 peer-valid:-top-6 peer-valid:text-green-400">
+                  className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                   Your Message
                 </label>
                 <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
