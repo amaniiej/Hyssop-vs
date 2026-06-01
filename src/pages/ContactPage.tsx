@@ -134,7 +134,7 @@ export default function ContactPage() {
                     id="name"
                   />
                   <label htmlFor="name"
-                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
+                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-100 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                     Full Name
                   </label>
                   <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
@@ -152,7 +152,7 @@ export default function ContactPage() {
                     id="email"
                   />
                   <label htmlFor="email"
-                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
+                    className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-100 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                     Email
                   </label>
                   <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
@@ -171,7 +171,7 @@ export default function ContactPage() {
                   id="msg"
                 />
                 <label htmlFor="msg"
-                  className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-500 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
+                  className="absolute left-0 top-3 text-[11px] font-bold tracking-[0.4em] text-gray-100 uppercase transition-all duration-300 peer-focus:-top-6 peer-focus:text-green-400 peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-green-400">
                   Your Message
                 </label>
                 <div className="absolute bottom-0 left-0 h-0.5 bg-green-500 w-0 peer-focus:w-full transition-all duration-700" />
