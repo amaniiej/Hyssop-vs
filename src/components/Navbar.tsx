@@ -33,7 +33,7 @@ export default function Navbar() {
       about: "ስለ እኛ",
       services: "አገልግሎቶቻችን",
       shop: "ኸርቦቻችን",
-      faq: "ጥያቄና መልስ",
+      faq: "ለጥያቄዎ መልስ",
       contact: "እኛን ያገኙ",
       shopBtn: "አሁኑኑ ይግዙ",
       navigate: "ይምረጡ",
