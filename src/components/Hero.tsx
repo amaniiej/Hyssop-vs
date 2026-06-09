@@ -81,7 +81,8 @@ export default function Hero() {
       >
         {/* ─── NEW: FADE TO WHITE TRANSITION ─── */}
         <div 
-            className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/20 to-transparent z-[5] pointer-events-none" 
+            className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/20 to-transparent z-
+            [5] pointer-events-none" 
         />
 
         {/* Background Decorative Glows */}
