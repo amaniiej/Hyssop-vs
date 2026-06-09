@@ -31,7 +31,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="bg-[#0b1f1a] text-white">
+    <div className="bg-white text-[#0b1f1a]">
       <Navbar />
       <div id="home">
         <Hero />

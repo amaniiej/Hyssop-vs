@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #0b1f1a;
-  --secondary: #0f3d2e;
-  --accent: #22c55e;
+  --primary: #f0f4f1;
+  --secondary: #e2e8e3;
+  --accent: #16a34a;
 }
 
 html {
@@ -22,7 +22,8 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  background-color: #f0f4f1;
+  color: #0b1f1a;
 }
 
 button {

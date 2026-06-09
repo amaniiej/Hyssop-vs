@@ -16,28 +16,25 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ─── ADVANCED SCROLL LOCK (Same as Products.tsx) ───
+  // ─── ADVANCED SCROLL LOCK ───
   useEffect(() => {
     if (showCalendly) {
       savedScrollY.current = window.scrollY;
       document.body.style.position = "fixed";
-      document.body.style.top = `-${savedScrollY.current}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
+      document.body.style.top      = `-${savedScrollY.current}px`;
+      document.body.style.left     = "0";
+      document.body.style.right    = "0";
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
+      document.body.style.top      = "";
+      document.body.style.left     = "";
+      document.body.style.right    = "";
       document.body.style.overflow = "";
       window.scrollTo({ top: savedScrollY.current, behavior: "instant" as ScrollBehavior });
     }
     return () => {
       document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
       document.body.style.overflow = "";
     };
   }, [showCalendly]);
@@ -54,7 +51,6 @@ export default function Hero() {
         style={{ boxShadow: "0 0 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.07)" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={() => setShowCalendly(false)}
           className="absolute top-6 right-6 z-50 bg-white/5 backdrop-blur-md w-10 h-10 rounded-full flex items-center justify-center text-white/40 hover:text-white border border-white/10 transition-all cursor-pointer"
@@ -62,7 +58,6 @@ export default function Hero() {
           <FaTimes />
         </button>
 
-        {/* Branded Calendly Iframe */}
         <iframe
           src="https://calendly.com/hyssopherbswelness/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0b1f1a&text_color=ffffff&primary_color=22c55e"
           width="100%"
@@ -72,7 +67,6 @@ export default function Hero() {
           title="Select a Date & Time"
         ></iframe>
 
-        {/* Decorative Glass Fade at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-12 bg-linear-to-t from-[#0b1f1a] to-transparent z-20 pointer-events-none" />
       </div>
     </div>,
@@ -85,6 +79,11 @@ export default function Hero() {
         id="home"
         className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0b1f1a]"
       >
+        {/* ─── NEW: FADE TO WHITE TRANSITION ─── */}
+        <div 
+            className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/20 to-transparent z-[5] pointer-events-none" 
+        />
+
         {/* Background Decorative Glows */}
         <div className="absolute w-150 h-150 bg-green-500/10 blur-[130px] rounded-full -top-48 -left-24" />
         <div className="absolute w-100 h-100 bg-green-900/20 blur-[100px] rounded-full bottom-0 right-0" />
@@ -94,7 +93,7 @@ export default function Hero() {
             
             {/* LEFT SIDE: Content */}
             <div className="flex-1 text-center md:text-left">
-              <p className="text-green-500 text-sm tracking-[0.55em] uppercase mb-4 font-semibold">
+              <p className="text-green-400 text-sm tracking-[0.55em] uppercase mb-4 font-semibold">
                 ልዩ የእፅዋት መፍትሄዎች
               </p>
               
@@ -141,11 +140,11 @@ export default function Hero() {
 
               </div>
 
-              <div className="mt-12 flex flex-wrap gap-6 justify-center md:justify-start opacity-70">
+              <div className="mt-12 flex flex-wrap gap-10 justify-center md:justify-start opacity-70">
                 {["100% Organic", "Fast Shipping", "Delivered with Care"].map((text, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <span className="text-green-400">✔</span>
-                    <span className="text-xs uppercase tracking-widest text-white">{text}</span>
+                    <span className="text-green-1000">✔</span>
+                    <span className="text-xs uppercase font-bold tracking-widest text-green-1000">{text}</span>
                   </div>
                 ))}
               </div>
@@ -162,6 +161,7 @@ export default function Hero() {
                   alt="Hyssop Herbs"
                   className="rounded-2xl shadow-2xl border border-white/5 object-cover w-full h-125"
                 />
+                
                 <div className="absolute -bottom-6 -left-6 bg-[#0f3d2e]/90 backdrop-blur-md p-4 rounded-xl border border-green-500/20 shadow-xl hidden md:block text-left">
                   <p className="text-green-400 font-bold text-sm">Customer Choice</p>
                   <p className="text-white text-xs">Pure Hyssop Extract</p>
@@ -174,7 +174,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Render the modal outside the section via Portal */}
       {modal}
     </>
   );
