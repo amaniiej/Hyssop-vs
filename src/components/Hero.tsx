@@ -1,13 +1,9 @@
-import { useEffect, useState, useRef } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTimes } from "react-icons/fa";
 
 export default function Hero() {
   const [offset, setOffset] = useState(0);
-  const [showCalendly, setShowCalendly] = useState(false);
   const navigate = useNavigate();
-  const savedScrollY = useRef(0);
 
   // ─── PARALLAX EFFECT ───
   useEffect(() => {
@@ -16,62 +12,10 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ─── ADVANCED SCROLL LOCK ───
-  useEffect(() => {
-    if (showCalendly) {
-      savedScrollY.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top      = `-${savedScrollY.current}px`;
-      document.body.style.left     = "0";
-      document.body.style.right    = "0";
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.position = "";
-      document.body.style.top      = "";
-      document.body.style.left     = "";
-      document.body.style.right    = "";
-      document.body.style.overflow = "";
-      window.scrollTo({ top: savedScrollY.current, behavior: "instant" as ScrollBehavior });
-    }
-    return () => {
-      document.body.style.position = "";
-      document.body.style.overflow = "";
-    };
-  }, [showCalendly]);
-
-  // ─── MODAL RENDERED VIA PORTAL ───
-  const modal = showCalendly ? createPortal(
-    <div
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-black/85 backdrop-blur-xl animate-fadeIn px-4"
-      style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
-      onClick={() => setShowCalendly(false)}
-    >
-      <div
-        className="relative w-full max-w-5xl h-[90vh] bg-[#0b1f1a]/80 backdrop-blur-[60px] border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl"
-        style={{ boxShadow: "0 0 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.07)" }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={() => setShowCalendly(false)}
-          className="absolute top-6 right-6 z-50 bg-white/5 backdrop-blur-md w-10 h-10 rounded-full flex items-center justify-center text-white/40 hover:text-white border border-white/10 transition-all cursor-pointer"
-        >
-          <FaTimes />
-        </button>
-
-        <iframe
-          src="https://calendly.com/hyssopherbswelness/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0b1f1a&text_color=ffffff&primary_color=22c55e"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          className="relative z-10"
-          title="Select a Date & Time"
-        ></iframe>
-
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-linear-to-t from-[#0b1f1a] to-transparent z-20 pointer-events-none" />
-      </div>
-    </div>,
-    document.body
-  ) : null;
+  // ─── STRIPE REDIRECT LOGIC (GOES TO STRIPE FIRST) ───
+  const handleBookCall = () => {
+    window.location.href = "https://book.stripe.com/test_28E5kw2mIgaafi51Vr8Zq00";
+  };
 
   return (
     <>
@@ -81,8 +25,8 @@ export default function Hero() {
       >
         {/* ─── NEW: FADE TO WHITE TRANSITION ─── */}
         <div 
-            className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/20 to-transparent z-
-            [5] pointer-events-none" 
+            className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-white via-white/20 to-transparent z-[
+            5] pointer-events-none" 
         />
 
         {/* Background Decorative Glows */}
@@ -124,8 +68,8 @@ export default function Hero() {
                   </button>
                 </div>
 
-                {/* BOOK CALL */}
-                <div onClick={() => setShowCalendly(true)} className="relative group cursor-pointer">
+                {/* BOOK CALL (NOW DIRECTS TO STRIPE IMMEDIATELY) */}
+                <div onClick={handleBookCall} className="relative group cursor-pointer">
                   <button className="relative px-12 py-5 bg-transparent border-none text-white font-bold text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
                     Book A Call
                     <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-amber-500/10 shadow-[inset_0_0_12px_rgba(251,191,36,0.3)] transition-all duration-300 group-hover:bg-amber-500/30 group-hover:shadow-[0_0_20px_rgba(251,191,36,0.2)]" />
@@ -174,8 +118,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      {modal}
     </>
   );
 }

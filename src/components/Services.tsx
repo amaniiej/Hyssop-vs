@@ -36,7 +36,8 @@ export default function Services() {
 
   // ─── STRIPE REDIRECT LOGIC ───
   const handleBookCall = () => {
-    window.location.href = "https://buy.stripe.com/test_28E5kw2mIgaafi51Vr8Zq00";
+    // Updated to exactly the URL you provided
+    window.location.href = "https://book.stripe.com/test_28E5kw2mIgaafi51Vr8Zq00";
   };
 
   // ─── CANVAS ANIMATION LOGIC ───
@@ -149,8 +150,7 @@ export default function Services() {
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ mixBlendMode: "screen" }} />
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 45%, rgba(34,197,94,0.05) 0%, transparent 65%)" }} />
 
-        <div className="relative z-10 max-w-scr
-        een-xl mx-auto w-full">
+        <div className="relative z-10 max-w-screen-xl mx-auto w-full">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl font-serif text-[#0b1f1a]] mb-5 leading-tight">
@@ -162,64 +162,64 @@ export default function Services() {
           </div>
 
           {/* Bubble Cloud - Updated for Dual Language with Visible White Background Design */}
-<div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-6 md:gap-y-10 w-full mb-24">
-{services.map((svc, i) => {
-const ac = accentMap[svc.accent];
-return (
-<div key={i} className="group relative cursor-default" style={{ animation: `pill-float ${11 + (i % 6)}s ease-in-out infinite`, animationDelay: `${i * 0.35}s` }}>
-{/* Outer halo glow - stronger on white */}
-<div className="absolute inset-0 rounded-full pointer-events-none" style={{ border: `2px solid ${ac.border}`, animation: `halo-breathe ${7 + (i % 4)}s ease-in-out infinite`, animationDelay: `${i * 0.5}s`, transform: "scale(1.22)", filter: "blur(2px)", opacity: 0.6 }} />
+          <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-6 md:gap-y-10 w-full mb-24">
+          {services.map((svc, i) => {
+          const ac = accentMap[svc.accent];
+          return (
+          <div key={i} className="group relative cursor-default" style={{ animation: `pill-float ${11 + (i % 6)}s ease-in-out infinite`, animationDelay: `${i * 0.35}s` }}>
+          {/* Outer halo glow - stronger on white */}
+          <div className="absolute inset-0 rounded-full pointer-events-none" style={{ border: `2px solid ${ac.border}`, animation: `halo-breathe ${7 + (i % 4)}s ease-in-out infinite`, animationDelay: `${i * 0.5}s`, transform: "scale(1.22)", filter: "blur(2px)", opacity: 0.6 }} />
 
-{/* Main bubble - dark gradient for white background visibility */}
-<div className="relative flex flex-col items-center gap-1 rounded-full backdrop-blur-xl transition-all duration-700 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_0_20px_rgba(0,0,0,0.4)] border border-white/10"
-style={{ 
-  padding: svc.large ? "14px 36px" : "12px 28px", 
-  background: `linear-gradient(145deg, rgba(11,31,26,0.95) 0%, rgba(11,31,26,0.85) 100%)`,
-  boxShadow: `0 8px 32px ${ac.dot}20, inset 0 0 20px rgba(0,0,0,0.4)`
-}}
->
-{/* Gradient border - top fade, visible on dark */}
-<div className="absolute inset-0 p-px opacity-30 group-hover:opacity-100 transition-opacity duration-500"
-style={{
-background: `linear-gradient(180deg, ${ac.dot} 0%, transparent 100%)`,
-WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-WebkitMaskComposite: 'xor'
-}}
-/>
+          {/* Main bubble - dark gradient for white background visibility */}
+          <div className="relative flex flex-col items-center gap-1 rounded-full backdrop-blur-xl transition-all duration-700 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_0_20px_rgba(0,0,0,0.4)] border border-white/10"
+          style={{ 
+            padding: svc.large ? "14px 36px" : "12px 28px", 
+            background: `linear-gradient(145deg, rgba(11,31,26,0.95) 0%, rgba(11,31,26,0.85) 100%)`,
+            boxShadow: `0 8px 32px ${ac.dot}20, inset 0 0 20px rgba(0,0,0,0.4)`
+          }}
+          >
+          {/* Gradient border - top fade, visible on dark */}
+          <div className="absolute inset-0 p-px opacity-30 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+          background: `linear-gradient(180deg, ${ac.dot} 0%, transparent 100%)`,
+          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+          WebkitMaskComposite: 'xor'
+          }}
+          />
 
-{/* Inner glow - green accent for depth */}
-<div className="absolute inset-0 rounded-full pointer-events-none"
-style={{
-  background: `radial-gradient(circle at 30% 30%, rgba(74,222,128,0.15) 0%, transparent 60%)`,
-  opacity: 0.4,
-  transition: 'opacity 500ms',
-}}
-/>
+          {/* Inner glow - green accent for depth */}
+          <div className="absolute inset-0 rounded-full pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at 30% 30%, rgba(74,222,128,0.15) 0%, transparent 60%)`,
+            opacity: 0.4,
+            transition: 'opacity 500ms',
+          }}
+          />
 
-{/* Amharic Text - Dark background, visible white text */}
-<span className="font-serif text-white group-hover:text-white/95 whitespace-nowrap tracking-wide transition-colors duration-500 text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" 
-style={{ fontSize: svc.large ? "18px" : "15px", fontWeight: 600 }}>
-{svc.name}
-</span>
+          {/* Amharic Text - Dark background, visible white text */}
+          <span className="font-serif text-white group-hover:text-white/95 whitespace-nowrap tracking-wide transition-colors duration-500 text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" 
+          style={{ fontSize: svc.large ? "18px" : "15px", fontWeight: 600 }}>
+          {svc.name}
+          </span>
 
-{/* English Translation - Darker, more visible on white background */}
-<span className="uppercase font-black tracking-[0.2em] text-green-400 group-hover:text-green-300 transition-colors duration-500 text-[9px] md:text-[10px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" 
-style={{ letterSpacing: '0.2em' }}>
-{svc.en}
-</span>
-</div>
+          {/* English Translation - Darker, more visible on white background */}
+          <span className="uppercase font-black tracking-[0.2em] text-green-400 group-hover:text-green-300 transition-colors duration-500 text-[9px] md:text-[10px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" 
+          style={{ letterSpacing: '0.2em' }}>
+          {svc.en}
+          </span>
+          </div>
 
-{/* Hover glow effect - stronger on white */}
-<div className="absolute inset-0 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-style={{
-  boxShadow: `0 0 40px ${ac.dot}40, 0 0 80px ${ac.dot}20`,
-  transform: 'scale(1.1)',
-}}
-/>
-</div>
-);
-})}
-</div>
+          {/* Hover glow effect - stronger on white */}
+          <div className="absolute inset-0 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            boxShadow: `0 0 40px ${ac.dot}40, 0 0 80px ${ac.dot}20`,
+            transform: 'scale(1.1)',
+          }}
+          />
+          </div>
+          );
+          })}
+          </div>
 
           {/* ─── CTA BUTTONS ─── */}
           <div className="flex flex-col items-center gap-8 mt-10">
@@ -227,38 +227,38 @@ style={{
              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 
                 {/* SHOP NOW */}
-<div onClick={() => navigate('/shop')} className="relative group cursor-pointer">
-  <button className="relative px-12 py-5 bg-transparent border-none text-white font-black text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
-    Shop Now
-    <div className="absolute inset-0 -z-10 rounded-full border border-green-400/30 transition-all duration-300 group-hover:border-green-300/50"
-      style={{ background: 'linear-gradient(135deg, rgba(21,128,61,0.95) 0%, rgba(22,163,74,0.80) 50%, rgba(21,128,61,0.70) 100%)', backdropFilter: 'blur(12px)' }}
-    />
-    <div className="absolute inset-0 -z-10 rounded-full p-px"
-      style={{
-        background: 'linear-gradient(180deg, rgba(134,239,172,0.5) 0%, rgba(134,239,172,0) 60%)',
-        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-        WebkitMaskComposite: 'xor'
-      }}
-    />
-  </button>
-</div>
+                <div onClick={() => navigate('/shop')} className="relative group cursor-pointer">
+                  <button className="relative px-12 py-5 bg-transparent border-none text-white font-black text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
+                    Shop Now
+                    <div className="absolute inset-0 -z-10 rounded-full border border-green-400/30 transition-all duration-300 group-hover:border-green-300/50"
+                      style={{ background: 'linear-gradient(135deg, rgba(21,128,61,0.95) 0%, rgba(22,163,74,0.80) 50%, rgba(21,128,61,0.70) 100%)', backdropFilter: 'blur(12px)' }}
+                    />
+                    <div className="absolute inset-0 -z-10 rounded-full p-px"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(134,239,172,0.5) 0%, rgba(134,239,172,0) 60%)',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMaskComposite: 'xor'
+                      }}
+                    />
+                  </button>
+                </div>
 
-{/* BOOK A CALL */}
-<div onClick={() => setShowCalendly(true)} className="relative group cursor-pointer">
-  <button className="relative px-12 py-5 bg-transparent border-none text-white font-black text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
-    Book A Consultation Call
-    <div className="absolute inset-0 -z-10 rounded-full border border-amber-400/30 transition-all duration-300 group-hover:border-amber-300/50"
-      style={{ background: 'linear-gradient(135deg, rgba(180,83,9,0.95) 0%, rgba(217,119,6,0.80) 50%, rgba(180,83,9,0.70) 100%)', backdropFilter: 'blur(12px)' }}
-    />
-    <div className="absolute inset-0 -z-10 rounded-full p-px"
-      style={{
-        background: 'linear-gradient(180deg, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0) 60%)',
-        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-        WebkitMaskComposite: 'xor'
-      }}
-    />
-  </button>
-</div>
+                {/* BOOK A CALL - Connected to handleBookCall instead of setShowCalendly */}
+                <div onClick={handleBookCall} className="relative group cursor-pointer">
+                  <button className="relative px-12 py-5 bg-transparent border-none text-white font-black text-sm uppercase tracking-widest cursor-pointer z-10 transition-transform active:scale-95">
+                    Book A Consultation Call
+                    <div className="absolute inset-0 -z-10 rounded-full border border-amber-400/30 transition-all duration-300 group-hover:border-amber-300/50"
+                      style={{ background: 'linear-gradient(135deg, rgba(180,83,9,0.95) 0%, rgba(217,119,6,0.80) 50%, rgba(180,83,9,0.70) 100%)', backdropFilter: 'blur(12px)' }}
+                    />
+                    <div className="absolute inset-0 -z-10 rounded-full p-px"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(251,191,36,0.5) 0%, rgba(251,191,36,0) 60%)',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMaskComposite: 'xor'
+                      }}
+                    />
+                  </button>
+                </div>
              </div>
           </div>
         </div>
