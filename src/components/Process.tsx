@@ -121,12 +121,12 @@ export default function Process() {
             >
               <div className={`flex-1 ${step.side === 'left' ? 'md:text-right' : 'md:text-left'}`}>
                 <div className="group">
-                  <span className="text-green-500/50 text-[10px] tracking-[0.4em] uppercase font-black mb-2 block">{step.subtitle}</span>
+                  <span className="text-[green-500/30] text-[10px] tracking-[0.4em] uppercase font-black mb-2 block">{step.subtitle}</span>
                   <h4 className="text-3xl md:text-4xl font-serif text-[#0b1f1a] mb-4 group-hover:text-green-400 transition-colors">{step.title}</h4>
-                  <p className="text-gray-500 text-base font-light leading-relaxed mb-6 max-w-lg ml-auto mr-auto md:ml-0 md:mr-0">
+                  <p className="text-gray-800 text-base font-medium leading-relaxed mb-6 max-w-lg ml-auto mr-auto md:ml-0 md:mr-0">
                     {step.desc}
                   </p>
-                  <div className={`text-[10px] font-mono tracking-widest text-amber-600/60 uppercase border-t border-white/5 pt-4 inline-block`}>
+                  <div className={`text-[10px] font-mono tracking-widest text-amber-600 uppercase border-t border-white/5 pt-4 inline-block`}>
                     {step.detail}
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function Process() {
 
               <div className="relative shrink-0 flex items-center justify-center w-24 h-24">
                 <div className="absolute inset-0 border border-green-500/10 rounded-full animate-ping opacity-20" />
-                <div className="w-16 h-16 rounded-4xl bg-white/3 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
+                <div className="w-16 h-16 rounded-4xl bg-white/3 backdrop-blur-xl border border-white/10 flex items-center justify-center text-[#0b1f1a] text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
                    {step.icon}
                 </div>
                 {i !== steps.length - 1 && (
@@ -158,8 +158,8 @@ export default function Process() {
             <div className="absolute inset-0 bg-linear-to-br from-[#0b1f1a] via-transparent to-black/60" />
             
             <div className="relative z-10 py-10 md:py-12 px-8 text-center">
-              <span className="text-amber-500 text-[10px] tracking-[0.8em] uppercase font-black block mb-4">Our Promise</span>
-              <h5 className="text-white font-serif italic text-2xl md:text-4xl leading-snug">
+              <span className="text-[#0b1f1a] text-[10px] tracking-[0.8em] uppercase font-black block mb-4">Our Promise</span>
+              <h5 className="text-[#0b1f1a] font-serif italic text-2xl md:text-4xl leading-snug">
                 "We don't just sell herbs; <br />
                 <span className="text-green-400">we steward a sacred ritual</span> of healing."
               </h5>
