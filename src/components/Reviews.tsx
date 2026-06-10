@@ -43,6 +43,18 @@ export default function Reviews() {
         ))}
       </div>
 
+      {/* ── GREEN-YELLOWY SMOOTH BACKDROP (Starts 15% from top, stops 15% from bottom) ── */}
+      <div 
+        className="absolute top-[15%] bottom-[15%] left-0 right-0 z-0 pointer-events-none overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #dbe8cb 0%, #f1f4d8 50%, #d4e4cd 100%)", // Rich, smooth green-yellowy-green mix
+        }}
+      >
+        {/* Soft edge fades so there are no sharp cuts at the 15% boundaries */}
+        <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-[#f5f0eb] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-[#f5f0eb] to-transparent" />
+      </div>
+
       <div className="relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 px-6">
@@ -56,7 +68,7 @@ export default function Reviews() {
           </h3>
         </div>
 
-        {/* --- MARQUEE WITH UIVERSE CARDS --- */}
+        {/* --- MARQUEE WITH YOUR ORIGINAL CARDS --- */}
         <div className="cards-container relative flex overflow-hidden">
           <div className="flex animate-marquee py-12 px-4 hover-parent">
             {scrollItems.map((review, idx) => (
@@ -92,7 +104,7 @@ export default function Reviews() {
       </div>
 
       <style>{`
-        /* --- UIVERSE STYLE ADAPTATION --- */
+        /* --- YOUR ORIGINAL UNTOUCHED UIVERSE STYLE --- */
         .card {
           width: 380px;
           height: 240px;

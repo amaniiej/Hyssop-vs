@@ -87,14 +87,24 @@ export default function Process() {
         ))}
       </div>
 
-      {/* ── LIVING BACKGROUND (Animated Glows) ── */}
+      {/* ── LIVING BACKGROUND (Animated Glows + NEW VERTICAL GLOW) ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
+        
+        {/* THE NEW VERTICAL CENTRAL GLOW */}
+        <div className="absolute top-[15%] bottom-[15%] left-1/2 -translate-x-1/2 w-full max-w-150 flex justify-center z-0">
+          {/* Core concentrated glow */}
+          <div className="absolute inset-y-0 w-1/4 bg-green-500/20 blur-[80px] rounded-[100%]" />
+          {/* Outer wide emanation */}
+          <div className="absolute inset-y-[10%] w-full bg-green-400/10 blur-[120px] rounded-[100%]" />
+        </div>
+
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/5 blur-[120px] rounded-full animate-pulse delay-700" />
         
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">
-          <path d="M500,0 Q600,500 500,1000" stroke="white" strokeWidth="0.5" fill="none" strokeDasharray="5 5" />
-          <path d="M450,0 Q350,500 450,1000" stroke="rgba(34,197,94,0.2)" strokeWidth="1" fill="none" />
+          {/* Changed strokes to green since white is invisible on this background */}
+          <path d="M500,0 Q600,500 500,1000" stroke="rgba(34,197,94,0.3)" strokeWidth="1" fill="none" strokeDasharray="5 5" />
+          <path d="M450,0 Q350,500 450,1000" stroke="rgba(34,197,94,0.2)" strokeWidth="1.5" fill="none" />
         </svg>
       </div>
 
@@ -104,7 +114,7 @@ export default function Process() {
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-amber-500/50" />
-            <span className="text-[10px] tracking-[0.6em] uppercase text-#0b1f1a font-black">The Hyssop Standard</span>
+            <span className="text-[10px] tracking-[0.6em] uppercase text-[#0b1f1a] font-black">The Hyssop Standard</span>
             <div className="h-px w-8 bg-amber-500/50" />
           </div>
           <h2 className="text-5xl md:text-7xl font-serif text-[#0b1f1a] leading-tight">
@@ -121,24 +131,26 @@ export default function Process() {
             >
               <div className={`flex-1 ${step.side === 'left' ? 'md:text-right' : 'md:text-left'}`}>
                 <div className="group">
-                  <span className="text-[green-500/30] text-[10px] tracking-[0.4em] uppercase font-black mb-2 block">{step.subtitle}</span>
+                  {/* Fixed Tailwind class from text-[green-500/30] to text-green-600/70 */}
+                  <span className="text-green-600/70 text-[10px] tracking-[0.4em] uppercase font-black mb-2 block">{step.subtitle}</span>
                   <h4 className="text-3xl md:text-4xl font-serif text-[#0b1f1a] mb-4 group-hover:text-green-400 transition-colors">{step.title}</h4>
                   <p className="text-gray-800 text-base font-medium leading-relaxed mb-6 max-w-lg ml-auto mr-auto md:ml-0 md:mr-0">
                     {step.desc}
                   </p>
-                  <div className={`text-[10px] font-mono tracking-widest text-amber-600 uppercase border-t border-white/5 pt-4 inline-block`}>
+                  <div className={`text-[10px] font-mono tracking-widest text-amber-600 uppercase border-t border-black/10 pt-4 inline-block`}>
                     {step.detail}
                   </div>
                 </div>
               </div>
 
               <div className="relative shrink-0 flex items-center justify-center w-24 h-24">
-                <div className="absolute inset-0 border border-green-500/10 rounded-full animate-ping opacity-20" />
-                <div className="w-16 h-16 rounded-4xl bg-white/3 backdrop-blur-xl border border-white/10 flex items-center justify-center text-[#0b1f1a] text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
+                <div className="absolute inset-0 border border-green-500/30 rounded-full animate-ping opacity-30" />
+                <div className="w-16 h-16 rounded-4xl bg-white/3 backdrop-blur-xl border border-green-500/20 flex items-center justify-center text-[#0b1f1a] text-2xl shadow-2xl z-10 transition-transform group-hover:scale-110">
                    {step.icon}
                 </div>
+                {/* Changed connecting line from white/10 to green-500/40 to be visible */}
                 {i !== steps.length - 1 && (
-                  <div className="absolute top-full h-24 w-px bg-linear-to-b from-white/10 to-transparent" />
+                  <div className="absolute top-full h-24 w-px bg-linear-to-b from-green-500/40 to-transparent" />
                 )}
               </div>
 

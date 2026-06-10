@@ -48,15 +48,28 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative py-24 px-6 bg-[#f5f0eb] overflow-hidden">
       
-      {/* --- ALIVE BACKGROUND: CURLY LINES & DIMMED FAQS WATERMARK --- */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Radiating Gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-[
-        800px] bg-emerald-500/10 blur-[160px] rounded-full animate-pulse-slow" />
+      {/* ── GREEN-YELLOWY BACKDROP WITH 30% RICHER SOFT SHADES (15% gap top/bottom) ── */}
+      <div 
+        className="absolute top-[15%] bottom-[15%] left-0 right-0 z-0 pointer-events-none overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #cbd9b2 0%, #ebecbe 50%, #c4dbb9 100%)", // Increased richness of the base by 30%
+        }}
+      >
+        {/* Soft edge fade overlays to prevent sharp transitions */}
+        <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#f5f0eb] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-[#f5f0eb] to-transparent" />
         
-        {/* THE "FAQS" BACKGROUND WATERMARK (Dimmed 65%) */}
+        {/* Layered smooth glowing "shades" - Increased opacity by 30% for a stronger color wash */}
+        <div className="absolute top-[20%] left-1/4 w-100 h-100 bg-green-400/35 blur-[90px] rounded-full mix-blend-multiply animate-pulse-slow" />
+        <div className="absolute bottom-[20%] right-1/4 w-100 h-100 bg-yellow-400/30 blur-[90px] rounded-full mix-blend-multiply animate-pulse-slow delay-700" />
+      </div>
+
+      {/* ── BACKGROUND WATERMARKS & TIMELINE LINES ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        
+        {/* THE "FAQS" BACKGROUND WATERMARK */}
         <div 
-          className={`absolute right-[5%] top-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000 ease-in-out opacity-100 ${isAnyOpen ? "gap-y-20" : "gap-y-8"}`}
+          className={`absolute right-[5%] top-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000 ease-in-out ${isAnyOpen ? "gap-y-20" : "gap-y-8"}`}
         >
           {[
             { char: 'F', rot: '-rotate-12', delay: '0s' },
@@ -66,9 +79,9 @@ export default function FAQ() {
           ].map((item, idx) => (
             <span 
               key={idx} 
-              className={`text-[12rem] md:text-[18rem] font-black leading-[0.8] text-amber-500/40 select-none ${item.rot} transition-all duration-700`}
+              className={`text-[12rem] md:text-[18rem] font-black leading-[0.8] text-amber-600/10 select-none ${item.rot} transition-all duration-700`}
               style={{ 
-                textShadow: '0 0 50px rgba(245,158,11,0.3)',
+                textShadow: '0 0 50px rgba(245,158,11,0.1)',
                 animation: `float-letter 8s ease-in-out infinite ${item.delay}`
               }}
             >
@@ -78,9 +91,9 @@ export default function FAQ() {
         </div>
 
         {/* Animated Curly Lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1000 1000">
-          <path d="M-100,200 C150,50 350,450 500,200 C650,50 850,450 1100,200" stroke="white" strokeWidth="0.5" fill="none" className="animate-draw-path" />
-          <path d="M1100,800 C850,600 650,1000 500,800 C350,600 150,1000 -100,800" stroke="rgba(34,197,94,0.3)" strokeWidth="1" fill="none" className="animate-draw-path-reverse" />
+        <svg className="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 1000 1000">
+          <path d="M-100,200 C150,50 350,450 500,200 C650,50 850,450 1100,200" stroke="rgba(34,197,94,0.18)" strokeWidth="1" fill="none" className="animate-draw-path" />
+          <path d="M1100,800 C850,600 650,1000 500,800 C350,600 150,1000 -100,800" stroke="rgba(245,158,11,0.18)" strokeWidth="1.5" fill="none" className="animate-draw-path-reverse" />
         </svg>
 
         {/* Grainy Finish */}
@@ -91,15 +104,15 @@ export default function FAQ() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-16 items-center">
           
-          {/* --- LEFT SIDE: COMPACT QUESTIONS (Now spans more width) --- */}
+          {/* --- LEFT SIDE: COMPACT QUESTIONS --- */}
           <div className="lg:col-span-10">
             <header className="mb-10">
               <div className="flex items-center gap-3 mb-2">
                 <div className="h-0.5 w-8 bg-amber-500" />
-                <span className="text-[10px] tracking-[0.5em] uppercase text-amber-500 font-black">Botanical Inquiries</span>
+                <span className="text-[10px] tracking-[0.5em] uppercase text-amber-600 font-black">Botanical Inquiries</span>
               </div>
               <h3 className="text-5xl md:text-7xl font-serif text-[#0b1f1a] leading-tight">
-                Common <span className="italic text-green-400 font-light">Wisdom</span>
+                Common <span className="italic text-green-700 font-light">Wisdom</span>
               </h3>
             </header>
 
@@ -107,22 +120,22 @@ export default function FAQ() {
               {faqs.map((faq, i) => (
                 <div 
                   key={i} 
-                  className={`transition-all duration-500 border-b border-white/5 ${openIndex === i ? "bg-white/3 backdrop-blur-sm" : ""}`}
+                  className={`transition-all duration-500 border-b border-black/6 ${openIndex === i ? "bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.02)] px-2" : ""}`}
                 >
                   <button 
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className="w-full flex items-center justify-between py-6 px-4 text-left cursor-pointer group"
                   >
-                    <span className={`text-base md:text-lg font-bold tracking-wide transition-all duration-500 ${openIndex === i ? "text-green-600" : "text-gray-700 group-hover:text-[#0b1f1a]"}`}>
+                    <span className={`text-base md:text-lg font-bold tracking-wide transition-all duration-500 ${openIndex === i ? "text-green-700" : "text-gray-700 group-hover:text-[#0b1f1a]"}`}>
                       {faq.q}
                     </span>
-                    <div className={`w-8 h-8 rounded-full border transition-all duration-500 flex items-center justify-center ${openIndex === i ? "rotate-90 bg-green-500 border-green-500 text-[#0b1f1a]" : "border-white/10 text-white/40 group-hover:border-white"}`}>
+                    <div className={`w-8 h-8 rounded-full border transition-all duration-500 flex items-center justify-center ${openIndex === i ? "rotate-90 bg-green-600 border-green-600 text-white" : "border-black/8 text-[#0b1f1a]/40 group-hover:border-black"}`}>
                       {openIndex === i ? <FaMinus className="text-[10px]" /> : <FaPlus className="text-[10px]" />}
                     </div>
                   </button>
                   
                   <div className={`overflow-hidden transition-all duration-700 ease-in-out ${openIndex === i ? "max-h-62.5 opacity-100" : "max-h-0 opacity-0"}`}>
-                    <p className="px-4 pb-8 text-gray-600 leading-relaxed text-base font-medium max-w-3xl italic">
+                    <p className="px-4 pb-8 text-gray-600 leading-relaxed text-base font-semimedium max-w-3xl italic">
                       {faq.a}
                     </p>
                   </div>
@@ -140,8 +153,8 @@ export default function FAQ() {
           50% { transform: translateY(-25px) scale(1.02); filter: brightness(1.2); }
         }
         @keyframes pulse-slow {
-          0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
-          50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.1); }
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.03); }
         }
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }

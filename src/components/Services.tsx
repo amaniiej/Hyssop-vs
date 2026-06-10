@@ -34,6 +34,14 @@ export default function Services() {
     rose:    { border: "rgba(251,113,133,0.20)", glow: "rgba(251,113,133,0.06)", dot: "#fb7185" },
   };
 
+  // ─── ALIGNED GRID FOR FLOWER LOGO WATERMARKS ───
+  const logoGrid = [
+    { t: '5%', l: '10%' }, { t: '5%', l: '50%' }, { t: '5%', l: '90%' },
+    { t: '25%', l: '30%' }, { t: '45%', l: '90%' },
+    { t: '85%', l: '10%' }, { t: '85%', l: '50%' }, { t: '85%', l: '90%' },
+    { t: '15%', l: '90%' }, { t: '75%', l: '5%' }
+  ];
+
   // ─── STRIPE REDIRECT LOGIC ───
   const handleBookCall = () => {
     // Updated to exactly the URL you provided
@@ -148,9 +156,44 @@ export default function Services() {
 
       <div ref={sectionRef} className="relative px-4 pt-16 pb-28 flex flex-col justify-center z-10">
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ mixBlendMode: "screen" }} />
+
+        {/* ── GREEN-YELLOWY BACKDROP WITH RICHER SOFT SHADES (FAQ STYLE - 15% bounds) ── */}
+        <div 
+          className="absolute top-[15%] bottom-[15%] left-0 right-0 z-0 pointer-events-none overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #cbd9b2 0%, #ebecbe 50%, #c4dbb9 100%)", // Richer green-yellow backdrop
+          }}
+        >
+          {/* Soft edge fade overlays to prevent sharp transitions */}
+          <div className="absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#f5f0eb] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-[#f5f0eb] to-transparent" />
+          
+          {/* Layered smooth glowing "shades" */}
+          <div className="absolute top-[20%] left-1/4 w-100 h-100 bg-green-400/35 blur-[90px] rounded-full mix-blend-multiply animate-pulse-slow" />
+          <div className="absolute bottom-[20%] right-1/4 w-100 h-100 bg-yellow-400/30 blur-[90px] rounded-full mix-blend-multiply animate-pulse-slow delay-700" />
+        </div>
+
+        {/* ── FLOWER LOGO WATERMARKS (ALIGNED FLOW - Opacity reduced for light background) ── */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.04]">
+          {logoGrid.map((pos, i) => (
+            <img 
+              key={i}
+              src="/images/hysspo-bg-preview.png" 
+              className="absolute select-none"
+              style={{ 
+                top: pos.t, 
+                left: pos.l, 
+                width: '150px',
+                transform: 'translate(60%, -40%) rotate(-15deg)' 
+              }}
+              alt="" 
+            />
+          ))}
+        </div>
+
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 45%, rgba(34,197,94,0.05) 0%, transparent 65%)" }} />
 
-        <div className="relative z-10 max-w-screen-xl mx-auto w-full">
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl font-serif text-[#0b1f1a]] mb-5 leading-tight">
@@ -267,6 +310,13 @@ export default function Services() {
       <style>{`
         @keyframes pill-float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
         @keyframes halo-breathe { 0%, 100% { opacity: 0.5; transform: scale(1.2); } 50% { opacity: 0; transform: scale(1.5); } }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.7; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.03); }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 8s ease-in-out infinite;
+        }
       `}</style>
     </section>
   );
