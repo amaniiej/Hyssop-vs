@@ -37,8 +37,8 @@ useEffect(() => {
         <Hero />
       </div>
       
-      <div id ="quote" className="fade-in"><Quote /></div>
-      <div id ="Services" className="fade-in"><Services /></div>
+      <div id="quote" className="fade-in"><Quote /></div>
+      <div id="Services" className="fade-in"><Services /></div>
       <div id="process" className="fade-in"><Process /></div>
       <div id="products" className="fade-in"><Products /></div>
       <div id="story" className="fade-in"><Story /></div>

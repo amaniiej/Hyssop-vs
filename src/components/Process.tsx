@@ -67,7 +67,7 @@ export default function Process() {
     <section
       ref={sectionRef}
       id="process"
-      className="relative py-24 bg-[#0b1f1a] overflow-hidden"
+      className="relative py-24 bg-[#f5f0eb] overflow-hidden"
     >
       {/* ── 15 ALIGNED LOGO WATERMARKS (-15 DEGREE SLANT) ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.25]">
@@ -104,11 +104,11 @@ export default function Process() {
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="h-px w-8 bg-amber-500/50" />
-            <span className="text-[10px] tracking-[0.6em] uppercase text-amber-400 font-black">The Hyssop Standard</span>
+            <span className="text-[10px] tracking-[0.6em] uppercase text-#0b1f1a font-black">The Hyssop Standard</span>
             <div className="h-px w-8 bg-amber-500/50" />
           </div>
-          <h2 className="text-5xl md:text-7xl font-serif text-white leading-tight">
-            From <span className="italic text-green-400">Seed</span> to <span className="text-white">Soul</span>
+          <h2 className="text-5xl md:text-7xl font-serif text-[#0b1f1a] leading-tight">
+            From <span className="italic text-green-400">Seed</span> to <span className="text-amber-400">Soul</span>
           </h2>
         </div>
 
@@ -122,11 +122,11 @@ export default function Process() {
               <div className={`flex-1 ${step.side === 'left' ? 'md:text-right' : 'md:text-left'}`}>
                 <div className="group">
                   <span className="text-green-500/50 text-[10px] tracking-[0.4em] uppercase font-black mb-2 block">{step.subtitle}</span>
-                  <h4 className="text-3xl md:text-4xl font-serif text-white mb-4 group-hover:text-green-400 transition-colors">{step.title}</h4>
-                  <p className="text-gray-400 text-base font-light leading-relaxed mb-6 max-w-lg ml-auto mr-auto md:ml-0 md:mr-0">
+                  <h4 className="text-3xl md:text-4xl font-serif text-[#0b1f1a] mb-4 group-hover:text-green-400 transition-colors">{step.title}</h4>
+                  <p className="text-gray-500 text-base font-light leading-relaxed mb-6 max-w-lg ml-auto mr-auto md:ml-0 md:mr-0">
                     {step.desc}
                   </p>
-                  <div className={`text-[10px] font-mono tracking-widest text-amber-500/40 uppercase border-t border-white/5 pt-4 inline-block`}>
+                  <div className={`text-[10px] font-mono tracking-widest text-amber-600/60 uppercase border-t border-white/5 pt-4 inline-block`}>
                     {step.detail}
                   </div>
                 </div>

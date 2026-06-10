@@ -1,6 +1,6 @@
 export default function Quote() {
   return (
-    <section id="quote" className="relative pt-32 pb-10 px-0 overflow-hidden bg-[#f0f4f1]">
+    <section id="quote" className="relative pt-32 pb-10 px-0 overflow-hidden bg-[#f5f0eb]">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
