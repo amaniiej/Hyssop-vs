@@ -55,7 +55,7 @@ export default function Navbar() {
      if (menuOpen) {
        setMenuOpen(false);
      }
-   }, [location.pathname]);
+   }, [location.pathname, menuOpen]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -145,7 +145,7 @@ export default function Navbar() {
                 <button key={item.id}
                   onClick={() => handleNav(item.id, item.type === "page")}
                   className={`relative uppercase tracking-[0.2em] font-black transition-all duration-300 cursor-pointer
-                    ${isActive ? "text-green-400" : "text-gray-400 hover:text-white"}
+                    ${isActive ? "text-green-400" : "text-[#f5f0eb] hover:text-white"}
                     ${isAmharic ? "text-[14px]" : "text-[11px]"}`}
                 >
                   {item.name}

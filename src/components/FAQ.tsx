@@ -46,7 +46,7 @@ export default function FAQ() {
   const isAnyOpen = openIndex !== null;
 
   return (
-    <section id="faq" className="relative py-24 px-6 bg-[#0b1f1a] overflow-hidden">
+    <section id="faq" className="relative py-24 px-6 bg-[#f5f0eb] overflow-hidden">
       
       {/* --- ALIVE BACKGROUND: CURLY LINES & DIMMED FAQS WATERMARK --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -56,7 +56,7 @@ export default function FAQ() {
         
         {/* THE "FAQS" BACKGROUND WATERMARK (Dimmed 65%) */}
         <div 
-          className={`absolute right-[5%] top-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000 ease-in-out opacity-30 ${isAnyOpen ? "gap-y-20" : "gap-y-8"}`}
+          className={`absolute right-[5%] top-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000 ease-in-out opacity-100 ${isAnyOpen ? "gap-y-20" : "gap-y-8"}`}
         >
           {[
             { char: 'F', rot: '-rotate-12', delay: '0s' },
@@ -98,7 +98,7 @@ export default function FAQ() {
                 <div className="h-0.5 w-8 bg-amber-500" />
                 <span className="text-[10px] tracking-[0.5em] uppercase text-amber-500 font-black">Botanical Inquiries</span>
               </div>
-              <h3 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+              <h3 className="text-5xl md:text-7xl font-serif text-[#0b1f1a] leading-tight">
                 Common <span className="italic text-green-400 font-light">Wisdom</span>
               </h3>
             </header>
@@ -113,7 +113,7 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(openIndex === i ? null : i)}
                     className="w-full flex items-center justify-between py-6 px-4 text-left cursor-pointer group"
                   >
-                    <span className={`text-base md:text-lg font-bold tracking-wide transition-all duration-500 ${openIndex === i ? "text-green-400" : "text-gray-300 group-hover:text-white"}`}>
+                    <span className={`text-base md:text-lg font-bold tracking-wide transition-all duration-500 ${openIndex === i ? "text-green-600" : "text-gray-700 group-hover:text-[#0b1f1a]"}`}>
                       {faq.q}
                     </span>
                     <div className={`w-8 h-8 rounded-full border transition-all duration-500 flex items-center justify-center ${openIndex === i ? "rotate-90 bg-green-500 border-green-500 text-[#0b1f1a]" : "border-white/10 text-white/40 group-hover:border-white"}`}>
@@ -122,7 +122,7 @@ export default function FAQ() {
                   </button>
                   
                   <div className={`overflow-hidden transition-all duration-700 ease-in-out ${openIndex === i ? "max-h-62.5 opacity-100" : "max-h-0 opacity-0"}`}>
-                    <p className="px-4 pb-8 text-gray-400 leading-relaxed text-base font-light max-w-3xl italic">
+                    <p className="px-4 pb-8 text-gray-600 leading-relaxed text-base font-medium max-w-3xl italic">
                       {faq.a}
                     </p>
                   </div>

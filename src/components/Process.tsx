@@ -80,7 +80,7 @@ export default function Process() {
               top: pos.t, 
               left: pos.l, 
               width: '220px', // Consistent sizing for alignment
-              transform: 'translate(-50%, -50%) rotate(-15deg)' 
+              transform: 'translate(50%, -50%) rotate(-15deg)' 
             }}
             alt="" 
           />
@@ -161,7 +161,7 @@ export default function Process() {
               <span className="text-[#0b1f1a] text-[10px] tracking-[0.8em] uppercase font-black block mb-4">Our Promise</span>
               <h5 className="text-[#0b1f1a] font-serif italic text-2xl md:text-4xl leading-snug">
                 "We don't just sell herbs; <br />
-                <span className="text-green-400">we steward a sacred ritual</span> of healing."
+                <span className="text-green-900">we steward a sacred ritual</span> of healing."
               </h5>
               <div className="mt-8 flex justify-center gap-1">
                 {[...Array(3)].map((_, i) => (

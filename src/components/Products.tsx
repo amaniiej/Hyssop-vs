@@ -41,6 +41,7 @@ export default function Products() {
     };
   }, [selectedProduct]);
 
+  // ─── ADDED 4TH PRODUCT & UPDATED LIST ───
   const products: Product[] = [
     {
       id: 1,
@@ -66,6 +67,14 @@ export default function Products() {
       image: "/images/Calendula-flower.jpg",
       description: "Organic yellow to bright orange blooms valued for skin-soothing, anti-inflammatory properties. Typically infused into oils for balms or steeped into tea to support cellular restoration and healing.",
     },
+    {
+      id: 4,
+      title: "Women's Cleansing",
+      category: "Medicinal Herbs",
+      price: "$11.00",
+      image: "/images/WOMENs CLEANSING.jpg",
+      description: "A deeply restorative and gentle blend crafted specifically for women's holistic wellness. Formulated with traditional herbs to support natural cleansing, hormonal balance, and inner vitality.",
+    }
   ];
 
   // Modal rendered via portal
@@ -104,7 +113,6 @@ export default function Products() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* FIXED: Added navigate handler to the button */}
             <button 
               onClick={() => navigate("/shop")}
               className="flex-1 py-4 bg-green-600 text-white font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-500 transition-all cursor-pointer shadow-lg"
@@ -126,22 +134,22 @@ export default function Products() {
 
   return (
     <>
-      <section id="products" className="relative py-24 px-6 bg-[#0b1f1a] overflow-hidden">
+      <section id="products" className="relative py-24 px-6 bg-[#f5f0eb] overflow-hidden">
         
         {/* Living background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-green-500/10 blur-[130px] rounded-full animate-pulse-slow" />
           <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-emerald-600/10 blur-[110px] rounded-full animate-pulse-slow delay-1000" />
           
-          <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1000 1000">
-            <path d="M-100,200 C200,50 400,500 600,200 S900,50 1100,200" stroke="white" strokeWidth="0.5" fill="none" className="animate-draw-line" />
-            <path d="M1100,800 C850,600 500,1000 200,800 S-100,600 -200,800" stroke="rgba(34,197,94,0.3)" strokeWidth="1" fill="none" className="animate-draw-line-slow" />
+          <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">
+            <path d="M-100,200 C200,50 400,500 600,200 S900,50 1100,200" stroke="rgba(11,31,26,0.1)" strokeWidth="0.5" fill="none" className="animate-draw-line" />
+            <path d="M1100,800 C850,600 500,1000 200,800 S-100,600 -200,800" stroke="rgba(34,197,94,0.2)" strokeWidth="1" fill="none" className="animate-draw-line-slow" />
           </svg>
 
           {[...Array(6)].map((_, i) => (
             <div 
               key={i}
-              className="absolute w-1 h-1 bg-green-400/40 rounded-full animate-float-pollen"
+              className="absolute w-1 h-1 bg-green-500/30 rounded-full animate-float-pollen"
               style={{
                 top: `${(i * 17 + 5) % 100}%`,
                 left: `${(i * 23 + 8) % 100}%`,
@@ -153,42 +161,48 @@ export default function Products() {
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-[10px] tracking-[0.6em] uppercase text-amber-400 font-black block mb-4">Botanical Apothecary</span>
-            <h2 className="text-4xl md:text-6xl font-serif text-white">
-              Nature's <span className="text-green-400 italic font-light">Pharmacy</span>
+            <span className="text-[10px] tracking-[0.6em] uppercase text-amber-500 font-black block mb-4">Botanical Apothecary</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-[#0b1f1a]">
+              Nature's <span className="text-green-600 italic font-light">Pharmacy</span>
             </h2>
           </div>
 
-          {/* Products grid */}
-          <div className="grid md:grid-cols-3 gap-12 justify-items-center">
+          {/* ─── 4-COLUMN GRID REDESIGN ─── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {products.map((product) => (
               <div key={product.id} className="group w-full max-w-75 perspective-distant">
+                {/* ─── DARK GREEN PREMIUM CARD DESIGN ─── */}
                 <div
                   onClick={() => setSelectedProduct(product)}
-                  className="relative h-80 rounded-[40px] overflow-hidden cursor-pointer transition-all duration-700 ease-out transform-gpu transform-3d group-hover:transform-[rotateY(12deg)_rotateX(2deg)] group-hover:shadow-[rgba(34,197,94,0.2)_-20px_40px_50px_0px]"
+                  className="relative h-85 rounded-[35px] overflow-hidden cursor-pointer transition-all duration-700 ease-out transform-gpu transform-3d group-hover:transform-[rotateY(8deg)_rotateX(2deg)] group-hover:shadow-[0_20px_40px_-10px_rgba(22,163,74,0.3)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)]"
                   style={{
-                    background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
-                    border: "1px solid rgba(255,255,255,0.1)"
+                    background: "linear-gradient(145deg, #1c4d3b 0%, #123326 100%)", // Deep forest green
+                    border: "1px solid rgba(34,197,94,0.15)"
                   }}
                 >
-                  <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+                  {/* Subtle inner emerald glow */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-green-500/10 via-transparent to-transparent opacity-60" />
 
-                  <div className="absolute inset-2.5 rounded-4xl border border-white/10 bg-white/2 backdrop-blur-xs overflow-hidden transform-[translateZ(30px)]">
-                    <div className="relative h-[60%] w-full overflow-hidden">
+                  <div className="absolute inset-2.5 rounded-[28px] border border-white/5 bg-white/5 backdrop-blur-sm overflow-hidden transform-[translateZ(25px)] shadow-[inset_0_0_15px_rgba(0,0,0,0.1)]">
+                    <div className="relative h-[55%] w-full overflow-hidden bg-black/20">
                       <img
                         src={product.image}
                         alt={product.title}
-                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale-30 group-hover:grayscale-0"
+                        className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 grayscale-15 group-hover:grayscale-0"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#0b1f1a] via-[#0b1f1a]/10 to-transparent" />
+                      {/* Fade image bottom directly into the dark card */}
+                      <div className="absolute inset-0 bg-linear-to-t from-[#123326] via-[#123326]/60 to-transparent" />
                     </div>
 
-                    <div className="px-6 py-4">
-                      <h3 className="text-xl font-serif text-white mb-0.5 group-hover:text-green-400 transition-colors">{product.title}</h3>
-                      <p className="text-gray-500 text-[9px] tracking-[0.3em] uppercase mb-3">{product.category}</p>
-                      <div className="flex items-center justify-between">
-                        <p className="text-lg font-bold text-white/90">{product.price}</p>
-                        <div className="w-8 h-8 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 opacity-0 group-hover:opacity-100 transition-all">
+                    <div className="px-5 py-4 h-[45%] flex flex-col justify-between relative z-10">
+                      <div>
+                        <h3 className="text-lg font-serif text-white mb-1 group-hover:text-green-400 transition-colors line-clamp-1">{product.title}</h3>
+                        <p className="text-gray-400 text-[8px] tracking-[0.3em] uppercase mb-0">{product.category}</p>
+                      </div>
+                      
+                      <div className="flex items-center justify-between mt-auto">
+                        <p className="text-lg font-bold text-green-400">{product.price}</p>
+                        <div className="w-8 h-8 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-[#0b1f1a] transition-all duration-300">
                           <span className="text-xs">→</span>
                         </div>
                       </div>
@@ -199,23 +213,26 @@ export default function Products() {
             ))}
           </div>
 
-          {/* Browse button */}
-          <div className="mt-20 text-center">
+          {/* ─── REDESIGNED HIGH-VISIBILITY BUTTON ─── */}
+          <div className="mt-24 text-center">
             <div className="relative inline-block group cursor-pointer">
               <button
                 onClick={() => navigate("/shop")}
-                className="relative px-12 py-5 bg-transparent border-none text-white font-black text-[11px] uppercase tracking-[0.2em] cursor-pointer z-10 transition-transform active:scale-95"
+                className="relative px-12 py-5 rounded-full border-none text-white font-black text-[11px] uppercase tracking-[0.2em] cursor-pointer z-10 transition-all duration-300 active:scale-95 shadow-[0_10px_30px_rgba(11,31,26,0.3)] hover:shadow-[0_15px_35px_rgba(22,163,74,0.3)] overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, #0b1f1a 0%, #0f3d2e 100%)", // Solid rich dark green
+                }}
               >
-                Browse Full Catalog
-                <div className="absolute inset-0 -z-10 rounded-full border border-white/10 bg-green-500/20 shadow-[inset_0_0_12px_rgba(74,222,128,0.4)] transition-all duration-300 group-hover:bg-green-500/40 group-hover:shadow-[0_0_25px_rgba(34,197,94,0.3)]" />
-                <div className="absolute inset-0 -z-10 rounded-full p-px" 
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(134,239,172,0.4) 0%, rgba(134,239,172,0) 100%)',
-                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskComposite: 'xor'
-                  }} 
-                />
-                <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden pointer-events-none">
+                <span className="relative z-20 flex items-center gap-3">
+                  Browse Full Catalog
+                  <span className="text-green-400 text-sm group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+                
+                {/* Elegant glow border */}
+                <div className="absolute inset-0 rounded-full border border-green-500/30 group-hover:border-green-400/60 transition-colors duration-500 z-10" />
+                
+                {/* Beautiful Shimmer effect */}
+                <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden pointer-events-none z-0">
                   <div className="absolute inset-0 w-1/2 h-full bg-white/10 -skew-x-45 -translate-x-full group-hover:animate-shimmer" />
                 </div>
               </button>
@@ -248,8 +265,11 @@ export default function Products() {
         }
         .animate-pulse-slow { animation: pulse-slow 10s ease-in-out infinite; }
 
-        @keyframes shimmer { 100% { transform: translateX(200%); } }
-        .animate-shimmer { animation: shimmer 2.5s infinite; }
+        @keyframes shimmer { 
+          0% { transform: translateX(-150%) skewX(-45deg); }
+          100% { transform: translateX(250%) skewX(-45deg); }
+        }
+        .animate-shimmer { animation: shimmer 2s infinite; }
 
         @keyframes fadeIn { 
           from { opacity: 0; transform: scale(0.98); } 

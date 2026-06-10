@@ -23,7 +23,7 @@ export default function Reviews() {
   const scrollItems = [...testimonials, ...testimonials];
 
   return (
-    <section id="reviews" className="relative py-24 bg-[#0b1f1a] overflow-hidden">
+    <section id="reviews" className="relative py-24 bg-[#f5f0eb] overflow-hidden">
       
       {/* ── 15 LOGO WATERMARKS (ALIGNED FLOW) ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.25]">
@@ -35,8 +35,8 @@ export default function Reviews() {
             style={{ 
               top: pos.t, 
               left: pos.l, 
-              width: '220px',
-              transform: 'translate(-50%, -50%) rotate(-15deg)' 
+              width: '150px',
+              transform: 'translate(60%, -40%) rotate(-15deg)' 
             }}
             alt="" 
           />
@@ -51,7 +51,7 @@ export default function Reviews() {
             <span className="text-[10px] tracking-[0.5em] uppercase text-amber-500 font-black">Sacred Testimonials</span>
             <div className="h-0.5 w-8 bg-amber-500" />
           </div>
-          <h3 className="text-4xl md:text-5xl font-serif text-white">
+          <h3 className="text-4xl md:text-5xl font-serif text-[#0b1f1a]">
             Witnessed <span className="italic text-green-400 font-light">Benefits</span>
           </h3>
         </div>
@@ -66,7 +66,7 @@ export default function Reviews() {
                     <div className="flex gap-1 mb-4 text-amber-400 text-[10px]">
                       <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
                     </div>
-                    <p className="tip italic font-serif text-white leading-relaxed">
+                    <p className="tip italic font-serif text-[#0b1f1a] leading-relaxed">
                       "{review.text}"
                     </p>
                   </div>
@@ -76,7 +76,7 @@ export default function Reviews() {
                       {review.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="second-text font-bold text-white text-sm">{review.name}</p>
+                      <p className="second-text font-bold text-[#0b1f1a] text-sm">{review.name}</p>
                       <p className="second-text text-green-400/60 uppercase tracking-widest text-[9px] font-black">{review.herb}</p>
                     </div>
                   </div>
@@ -86,8 +86,8 @@ export default function Reviews() {
           </div>
 
           {/* Gradient Fades for Smoothness */}
-          <div className="absolute top-0 left-0 w-40 h-full bg-linear-to-r from-[#0b1f1a] to-transparent z-20" />
-          <div className="absolute top-0 right-0 w-40 h-full bg-linear-to-l from-[#0b1f1a] to-transparent z-20" />
+          <div className="absolute top-0 left-0 w-40 h-full bg-linear-to-r from-[#f5f0eb] to-transparent z-20" />
+          <div className="absolute top-0 right-0 w-40 h-full bg-linear-to-l from-[#f5f0eb] to-transparent z-20" />
         </div>
       </div>
 

@@ -49,7 +49,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#0b1f1a] text-white min-h-screen flex flex-col font-sans selection:bg-green-500/30 overflow-x-hidden relative">
+    
+    <div className="bg-[#095845] text-white min-h-screen flex flex-col font-sans selection:bg-green-500/30 overflow-x-hidden relative">
       <Navbar />
 
       {/* --- DYNAMIC GLOWING BACKGROUND --- */}
@@ -62,8 +63,9 @@ export default function ContactPage() {
           <path d="M500,-100 C300,150 700,350 500,500 C300,650 700,850 500,1100" stroke="rgba(34,197,94,0.3)" strokeWidth="0.5" fill="none" />
         </svg>
       </div>
-
+ 
       <main className="relative z-10 grow flex items-center pt-20 md:pt-32 pb-12 px-6">
+        
         <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-x-12 gap-y-16 items-center lg:-translate-y-[13%]">
 
           {/* --- LEFT SIDE: THE INFO --- */}

@@ -18,7 +18,7 @@ function FloatingSeeds() {
 
 export default function Story() {
   return (
-    <section id="story" className="relative py-16 px-6 overflow-hidden bg-[#0b1f1a]">
+    <section id="story" className="relative py-16 px-6 overflow-hidden bg-[#f5f0eb]">
       
       {/* --- THE ARTISTIC LAYERED BACKGROUND (Adjusted only brightness as per your feedback) --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -54,11 +54,11 @@ export default function Story() {
           {/* Header & New Context Info */}
           <div className="space-y-4">
             <span className="text-amber-400 text-[10px] tracking-[0.8em] uppercase font-black block opacity-80">The Philosophy</span>
-            <h3 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+            <h3 className="text-5xl md:text-7xl font-serif text-[#0b1f1a] leading-tight">
               The Journey to <br />
               <span className="italic text-green-400 font-light">Wellness is:</span>
             </h3>
-            <p className="text-gray-100 text-lg font-light leading-relaxed max-w-xl italic border-l border-green-500/30 pl-6">
+            <p className="text-gray-600 text-lg font-light leading-relaxed max-w-xl italic border-l border-green-500/30 pl-6">
               ጤና ሕይወትን የማደስ ሂደት እንጂ ግብ አይደለም፤ ከተፈጥሮ ጋር መዋሃድ ነው። እውነተኛ ፈውስ የሚገኘው ጥንታዊ የእፅዋት ጥበብ ከዘመናዊ ሳይንስ ጋር ሲዋሃድ እና በሥጋና በመንፈስ መካከል ድልድይ ሲገነባ ነው።
             </p>
           </div>
@@ -71,13 +71,13 @@ export default function Story() {
               { icon: <FaLeaf />, title: "Sacred Remedy", desc: "A remembering for the body, the mind, and the eternal human spirit." }
             ].map((item, idx) => (
               <div key={idx} className="group flex items-start gap-6 max-w-lg">
-                <div className="w-14 h-14 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-xl text-green-400/40 group-hover:text-green-400 group-hover:border-green-500/50 transition-all duration-700 backdrop-blur-sm shadow-2xl relative">
+                <div className="w-14 h-14 shrink-0 rounded-full border border-[white/80] flex items-center justify-center text-xl text-green-700/40 group-hover:text-green-400 group-hover:border-green-900/50 transition-all duration-700 backdrop-blur-sm shadow-2xl relative">
                   <div className="absolute inset-0 rounded-full bg-green-400/5 scale-0 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-700 blur-md" />
                   {item.icon}
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-xl font-serif text-white/90 group-hover:text-white transition-colors">{item.title}</h4>
-                  <p className="text-gray-500 text-sm font-light italic leading-relaxed opacity-90">{item.desc}</p>
+                  <h4 className="text-xl font-serif text-[#0b1f1a] group-hover:text-white transition-colors">{item.title}</h4>
+                  <p className="text-gray-800 text-sm font-semimedium italic leading-relaxed opacity-90">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -87,7 +87,7 @@ export default function Story() {
           <div className="flex flex-row items-center gap-12 border-t border-white/5 pt-10">
             <div className="group relative">
               <div className="flex items-baseline">
-                <span className="text-5xl md:text-6xl font-serif text-white tracking-tighter">98</span>
+                <span className="text-5xl md:text-6xl font-serif text-[#0b1f1a] tracking-tighter">98</span>
                 <span className="text-lg text-amber-500 ml-0.5">%</span>
               </div>
               <p className="text-[9px] tracking-[0.4em] uppercase text-green-400 font-bold mt-1">Herbal Purity</p>
@@ -95,7 +95,7 @@ export default function Story() {
 
             <div className="group relative">
               <div className="flex items-baseline">
-                <span className="text-5xl md:text-6xl font-serif text-white tracking-tighter">100</span>
+                <span className="text-5xl md:text-6xl font-serif text-[#c5872a] tracking-tighter">100</span>
                 <span className="text-lg text-amber-500 ml-0.5">%</span>
               </div>
               <p className="text-[9px] tracking-[0.4em] uppercase text-green-400 font-bold mt-1">Natural Essence</p>

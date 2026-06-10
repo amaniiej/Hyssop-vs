@@ -44,7 +44,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-[#0b1f1a] text-white min-h-screen font-sans overflow-x-hidden relative selection:bg-green-500/30">
+    <div className="bg-[#095845] text-white min-h-screen font-sans overflow-x-hidden relative selection:bg-green-500/30">
       
       {/* --- DOPE BACKGROUND: CURLY LINES & 15 LOGOS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 Welcome to our herbal family. Every product you find here is crafted 
                 with care and guided by nature’s wisdom—so you can live healthier, naturally.
               </h3>
-              <div className="space-y-6 text-gray-400 font-light leading-relaxed text-lg">
+              <div className="space-y-6 text-gray-100 font-light leading-relaxed text-lg">
                 <p>“Our herbal health store was born from a deep belief in the healing power of nature. As the founder, my journey began with a passion for natural remedies.”</p>
                 <p>“What started as a personal exploration grew into a mission to share safe, effective, and sustainable herbal products with the community. Today, this store stands as a reflection of that vision.”</p>
               </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-3xl md:text-5xl font-serif leading-tight">
                   Herb: <span className="text-green-400">እፅዋት</span> <br />
-                  <span className="text-lg text-gray-500 uppercase tracking-widest italic">(Traditional Medicine)</span>
+                  <span className="text-lg text-gray-400 uppercase tracking-widest italic">(Traditional Medicine)</span>
                 </h3>
                 <p className="text-gray-300 text-lg leading-relaxed font-light">
                   እፅዋትን ከ 5000 አመታት በፊት በተለይዩ አለማት በባህል መድሃኒትነት እና ምግብነት ሲጠቀሙበት የቆየ ሲሆን በ አለም ላይ ለረጅም አመታት እፅዋትን ወደ ባህላዊ መድሃኒትነት ቀይረው ተጠቃሚ በመሆን ብዙዎችን በመርዳት ከሚታወቁት ሀገራት ጥቂቶቹ <span className="text-green-300 font-medium">ኤዥያ: አፍሪካ እና ላቲን አሜሪካ</span> ይገኙበታል ::
@@ -129,8 +129,8 @@ export default function AboutPage() {
                      <FaMicroscope className="text-green-400" />
                      <span className="text-[9px] font-black uppercase text-green-400">Scientific Fact</span>
                    </div>
-                   <p className="text-2xl font-serif text-white">40% <span className="text-xs text-gray-500">of Global Medicine</span></p>
-                   <p className="text-[10px] text-gray-400 mt-2">Derived directly from plant sources.</p>
+                   <p className="text-2xl font-serif text-white">40% <span className="text-xs text-gray-100">of Global Medicine</span></p>
+                   <p className="text-[12px] text-gray-200 mt-2">Derived directly from plant sources.</p>
                 </div>
                 <div className="p-6 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-md">
                    <div className="flex items-center gap-3 mb-2">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                      <span className="text-[9px] font-black uppercase text-amber-400">Ancient Text</span>
                    </div>
                    <p className="text-lg font-serif text-white italic">"Herbs are mentioned in Genesis..."</p>
-                   <p className="text-[10px] text-gray-400 mt-2">Referenced from the first chapter.</p>
+                   <p className="text-[12px] text-gray-200 mt-2">Referenced from the first chapter.</p>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="text-center pt-8">
-                <p className="text-gray-500 text-sm italic font-light leading-relaxed max-w-lg mx-auto">
+                <p className="text-gray-200 text-sm italic font-medium leading-relaxed max-w-lg mx-auto">
                   "For centuries across countries, people have turned to traditional healers and ancient medicinal knowledge... as mentioned throughout the Bible text."
                 </p>
               </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
                   { icon: <FaGraduationCap />, text: "Business Graduate" },
                   { icon: <FaUtensils />, text: "Fertility Expert" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-gray-400">
+                  <div key={i} className="flex items-center gap-3 text-gray-100">
                     <span className="text-green-500">{item.icon}</span>
                     <span className="text-xs tracking-widest uppercase">{item.text}</span>
                   </div>
@@ -258,7 +258,7 @@ export default function AboutPage() {
               <div key={i} className={`${v.shape} p-10 bg-white/3 border border-white/10 backdrop-blur-md hover:border-green-500/40 transition-all duration-700 group shadow-xl`}>
                 <div className="text-3xl text-green-400 mb-6 group-hover:scale-110 transition-transform group-hover:text-amber-400">{v.icon}</div>
                 <h4 className="text-xl font-serif text-white mb-3">{v.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed font-light">{v.desc}</p>
+                <p className="text-gray-300 text-sm leading-relaxed font-medium">{v.desc}</p>
               </div>
             ))}
           </div>

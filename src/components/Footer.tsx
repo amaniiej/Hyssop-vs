@@ -24,7 +24,7 @@ export default function Footer() {
                 <p className="text-[9px] text-green-400 uppercase tracking-[0.3em] font-black">Wellness</p>
               </div>
             </div>
-            <p className="text-gray-50 text-xs leading-relaxed font-light italic">
+            <p className="text-gray-50 text-xs leading-relaxed font-semimedium italic">
               "Healing Begins With Nature." Global ancestral wellness remedies.
             </p>
             <div className="flex gap-4 text-lg text-gray-500 pt-1">

@@ -631,7 +631,7 @@ export default function Shop() {
   // RENDER
   // ─────────────────────────────────────────────────────────
   return (
-    <div className="bg-[#0b1f1a] text-white min-h-screen font-sans selection:bg-green-500/30">
+    <div className="bg-[#095845] text-white min-h-screen font-sans selection:bg-green-500/30">
       <Navbar />
 
       {/* Background */}
