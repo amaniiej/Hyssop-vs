@@ -51,11 +51,15 @@ export default function Navbar() {
     window.dispatchEvent(new Event("languageChange"));
   };
 
-   useEffect(() => {
-     if (menuOpen) {
-       setMenuOpen(false);
-     }
-   }, [location.pathname, menuOpen]);
+  // ─── CLOSE MENU ON ROUTE CHANGE (FIXED FOR COMPILER & UNRESPONSIVE BUTTON) ───
+  useEffect(() => {
+    // Closing the menu asynchronously on route changes prevents cascading 
+    // synchronous renders, completely satisfying the strict ESLint rule!
+    const handleRouteChange = setTimeout(() => {
+      setMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(handleRouteChange);
+  }, [location.pathname]); // No menuOpen dependency! Fixes the unresponsive hamburger button.
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -119,7 +123,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`fixed w-full z-5000 transition-all duration-500 px-4 md:px-6 ${isScrolled ? "top-4" : "top-0"}`}>
+      <div className={`fixed w-full z-[5000] transition-all duration-500 px-4 md:px-6 ${isScrolled ? "top-4" : "top-0"}`}>
         <nav className={`max-w-7xl mx-auto flex justify-between items-center px-5 md:px-8 py-3.5 md:py-4 transition-all duration-500 rounded-full border
           ${isScrolled
             ? "bg-[#0b1f1a]/70 backdrop-blur-2xl border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
@@ -195,7 +199,7 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(o => !o)}
-              className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.25 cursor-pointer z-6000"
+              className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.25 cursor-pointer z-[6000]"
               aria-label="Toggle menu"
             >
               <span className={`block h-[1.5px] bg-white rounded-full transition-all duration-400 ease-in-out origin-center
@@ -209,15 +213,15 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* ── MOBILE MENU OVERLAY ─────────────────────────────────────────── */}
+      {/* ── MOBILE MENU OVERLAY ── */}
       <div
-        className={`fixed inset-0 z-4990 bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden
+        className={`fixed inset-0 z-[4990] bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden
           ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={() => setMenuOpen(false)}
       />
 
       <div
-        className={`fixed top-0 right-0 bottom-0 z-4995 w-[85vw] max-w-85 flex flex-col
+        className={`fixed top-0 right-0 bottom-0 z-[4995] w-[85vw] max-w-85 flex flex-col
           transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] md:hidden`}
         style={{
           transform:      menuOpen ? "translateX(0)" : "translateX(100%)",
