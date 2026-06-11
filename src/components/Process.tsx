@@ -50,7 +50,7 @@ export default function Process() {
   // Logic for the Aligned Grid of 15 Logos
   const logoGrid = [
     // Row 1
-    { t: '10%', l: '2%' }, { t: '5%', l: '20%' }, { t: '5%', l: '60%' },
+    { t: '10%', l: '2%' }, { t: '5%', l: '20%' }, { t: '1%', l: '60%' },
     // Row 2 (Staggered)
     { t: '25%', l: '30%' }, { t: '25%', l: '70%' },
     // Row 3
@@ -58,7 +58,7 @@ export default function Process() {
     // Row 4 (Staggered)
     { t: '65%', l: '30%' }, { t: '65%', l: '70%' },
     // Row 5
-    { t: '85%', l: '2%' }, { t: '85%', l: '20%' }, { t: '85%', l: '60%' },
+    { t: '85%', l: '5%' }, { t: '85%', l: '20%' }, { t: '85%', l: '60%' },
     // Fillers for total of 15
     { t: '15%', l: '90%' }, { t: '75%', l: '5%' }
   ];
