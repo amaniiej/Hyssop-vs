@@ -50,7 +50,7 @@ export default function Process() {
   // Logic for the Aligned Grid of 15 Logos
   const logoGrid = [
     // Row 1
-    { t: '10%', l: '-40%' }, { t: '5%', l: '20%' }, { t: '1%', l: '60%' },
+    { t: '10%', l: '-40%' }, { t: '2%', l: '20%' }, { t: '1%', l: '60%' },
     // Row 2 (Staggered)
     { t: '30%', l: '30%' }, { t: '25%', l: '70%' },
     // Row 3
