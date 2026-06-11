@@ -48,13 +48,39 @@ export default function ContactPage() {
     window.open(whatsappUrl, "_blank");
   };
 
+  // Logic for the Aligned Grid of 15 Logos (Matches your Reviews style)
+  const logoGrid = [
+    { t: '5%', l: '10%' }, { t: '5%', l: '50%' }, { t: '5%', l: '90%' },
+    { t: '25%', l: '30%' }, { t: '45%', l: '60%' },
+    { t: '85%', l: '10%' }, { t: '5%', l: '50%' }, { t: '85%', l: '90%' },
+    { t: '55%', l: '90%' }, { t: '55%', l: '5%' }, { t: '85%', l: '45%' }
+  ];
+
   return (
-    
     <div className="bg-[#095845] text-white min-h-screen flex flex-col font-sans selection:bg-green-500/30 overflow-x-hidden relative">
       <Navbar />
 
-      {/* --- DYNAMIC GLOWING BACKGROUND --- */}
+      {/* --- DYNAMIC GLOWING BACKGROUND (With Logo Watermarks Added) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
+        
+        {/* ── FLOWER LOGO WATERMARKS (Reviews style) ── */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-[0.25]">
+          {logoGrid.map((pos, i) => (
+            <img 
+              key={i}
+              src="/images/hysspo-bg-preview.png" 
+              className="absolute select-none"
+              style={{ 
+                top: pos.t, 
+                left: pos.l, 
+                width: '220px',
+                transform: 'translate(-50%, -50%) rotate(-15deg)' 
+              }}
+              alt="" 
+            />
+          ))}
+        </div>
+
         <div className="absolute top-[5%] left-[-5%] w-150 h-150 bg-emerald-600/20 blur-[130px] rounded-full animate-pulse" />
         <div className="absolute bottom-[10%] right-[-5%] w-125 h-125 bg-green-500/10 blur-[100px] rounded-full" />
         <div className="absolute top-[40%] right-[15%] w-100 h-100 bg-amber-500/10 blur-[110px] rounded-full animate-bounce-slow" />
@@ -65,7 +91,6 @@ export default function ContactPage() {
       </div>
  
       <main className="relative z-10 grow flex items-center pt-20 md:pt-32 pb-12 px-6">
-        
         <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-x-12 gap-y-16 items-center lg:-translate-y-[13%]">
 
           {/* --- LEFT SIDE: THE INFO --- */}
