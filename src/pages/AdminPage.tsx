@@ -117,7 +117,7 @@ export default function AdminPage() {
   ];
 
   // Load Data
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setLoading(true);
     setErrorMsg("");
 
@@ -196,11 +196,11 @@ export default function AdminPage() {
     } finally {
       setLoading(false);
     }
-  };
+  });
 
   useEffect(() => {
     loadData();
-  }, [isUsingMock]);
+  }, [isUsingMock, loadData]);
 
   // ── DB / Action Handlers ──
   const handleSaveOrder = async () => {

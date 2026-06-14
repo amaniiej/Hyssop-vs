@@ -160,7 +160,7 @@ export default function Process() {
         </div>
 
         {/* ── OUR PROMISE CARD ── */}
-        <div className="mt-32 relative max-w-4xl mx-auto">
+        <div className="mt-32 relative max-w-4x mx-auto">
           <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
             <img
               src="/images/flower-bgd.jpeg"
@@ -169,7 +169,7 @@ export default function Process() {
             />
             <div className="absolute inset-0 bg-linear-to-br from-[#0b1f1a] via-transparent to-black/60" />
             
-            <div className="relative z-10 py-10 md:py-12 px-8 text-center">
+            <div className="relative z-2 py-10 md:py-12 px-8 text-center">
               <span className="text-[#0b1f1a] text-[10px] tracking-[0.8em] uppercase font-black block mb-4">Our Promise</span>
               <h5 className="text-[#0b1f1a] font-serif italic text-2xl md:text-4xl leading-snug">
                 "We don't just sell herbs; <br />

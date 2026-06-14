@@ -5,6 +5,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
 import SmoothScroll from "./components/SmoothScroll"; // Import the buttery scroll
+import ConsultationConfirmed from "./pages/ConsultationConfirmed";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/consultation-confirmed" element={<ConsultationConfirmed />} />
       </Routes>
     </>
   );
