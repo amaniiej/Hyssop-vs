@@ -44,7 +44,6 @@ export default function Services() {
 
   // ─── STRIPE REDIRECT LOGIC ───
   const handleBookCall = () => {
-    // Updated to exactly the URL you provided
     window.location.href = "https://book.stripe.com/test_28E5kw2mIgaafi51Vr8Zq00";
   };
 
@@ -64,6 +63,9 @@ export default function Services() {
     const ro = new ResizeObserver(resize);
     ro.observe(section);
 
+    // Detect mobile screens to optimize listeners
+    const isMobile = window.innerWidth < 1024;
+
     const onMove = (e: MouseEvent) => {
       const rect = section.getBoundingClientRect();
       targetRef.current = {
@@ -71,7 +73,11 @@ export default function Services() {
         y: (e.clientY - rect.top)  / rect.height,
       };
     };
-    section.addEventListener("mousemove", onMove);
+
+    // Skip attaching expensive move listener on mobile
+    if (!isMobile) {
+      section.addEventListener("mousemove", onMove);
+    }
 
     const orbs = [
       { cx: 0.22, cy: 0.40, ax: 0.11, ay: 0.07, pX: 88,  pY: 72,  hue: 148, a: 0.12, r: 0.50 },
@@ -85,9 +91,15 @@ export default function Services() {
       const H = canvas.height;
       ctx.clearRect(0, 0, W, H);
 
+      // Re-evaluate mobile state during resize events
+      const isMobileNow = window.innerWidth < 1024;
+
       for (const o of orbs) {
-        const x = (o.cx + Math.sin((s / o.pX) * Math.PI * 2) * o.ax) * W;
-        const y = (o.cy + Math.cos((s / o.pY) * Math.PI * 2) * o.ay) * H;
+        // If mobile, keep bubbles beautifully static (timeFactor = 0) so they don't consume CPU
+        const timeFactor = isMobileNow ? 0 : s;
+
+        const x = (o.cx + Math.sin((timeFactor / o.pX) * Math.PI * 2) * o.ax) * W;
+        const y = (o.cy + Math.cos((timeFactor / o.pY) * Math.PI * 2) * o.ay) * H;
         const r = o.r * Math.max(W, H);
         const g = ctx.createRadialGradient(x, y, 0, x, y, r);
         g.addColorStop(0,    `hsla(${o.hue},68%,42%,${o.a})`);
@@ -97,6 +109,11 @@ export default function Services() {
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
         ctx.fill();
+      }
+
+      // ─── OPTIMIZATION: Skip requestAnimationFrame loop entirely on mobile ───
+      if (isMobileNow) {
+        return; 
       }
 
       const ease = 0.03;
