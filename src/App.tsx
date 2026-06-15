@@ -4,13 +4,11 @@ import Shop from "./pages/Shop";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
-import SmoothScroll from "./components/SmoothScroll"; // Import the buttery scroll
 import ConsultationConfirmed from "./pages/ConsultationConfirmed";
 
 export default function App() {
   return (
     <>
-      <SmoothScroll /> {/* Add this line here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
