@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import {
@@ -116,91 +116,101 @@ export default function AdminPage() {
     { id: 3, name: "David Sterling", email: "david@sterling.io", phone: "+44 20-7946", role: "customer" }
   ];
 
-  // Load Data
-  const loadData = useCallback(async () => {
-    setLoading(true);
-    setErrorMsg("");
+  // Load Data — a tick increment is used by save/delete handlers to trigger a re-fetch
+  const [fetchTick, setFetchTick] = useState(0);
+  const loadData = useCallback(() => setFetchTick(t => t + 1), []);
 
-    if (!supabase || isUsingMock) {
-      // Simulate fetch delay
-      setTimeout(() => {
-        setOrders(mockOrders);
-        setProducts(mockProducts);
-        setUsers(mockUsers);
-        setLoading(false);
-      }, 500);
-      return;
-    }
+  useEffect(() => {
+    let cancelled = false;
 
-    try {
-      // Fetch Orders
-      const { data: dbOrders, error: oError } = await supabase
-        .from("orders")
-        .select("*")
-        .order("id", { ascending: false });
+    const run = async () => {
+      setLoading(true);
+      setErrorMsg("");
 
-      // Fetch Products
-      const { data: dbProducts, error: pError } = await supabase
-        .from("products")
-        .select("*")
-        .order("id", { ascending: true });
+      if (!supabase || isUsingMock) {
+        // Simulate fetch delay
+        setTimeout(() => {
+          if (cancelled) return;
+          setOrders(mockOrders);
+          setProducts(mockProducts);
+          setUsers(mockUsers);
+          setLoading(false);
+        }, 500);
+        return;
+      }
 
-      // Fetch Users
-      const { data: dbUsers, error: uError } = await supabase
-        .from("users")
-        .select("*")
-        .order("id", { ascending: true });
+      try {
+        // Fetch Orders
+        const { data: dbOrders, error: oError } = await supabase
+          .from("orders")
+          .select("*")
+          .order("id", { ascending: false });
 
-      if (oError || pError || uError) {
-        console.warn("Table load failed, check if tables exist in Supabase:", { oError, pError, uError });
-        setErrorMsg("Failed to load tables from Supabase. Ensure you run the SQL migration script in Supabase SQL Editor. Reverting to Mock Mode for preview.");
+        // Fetch Products
+        const { data: dbProducts, error: pError } = await supabase
+          .from("products")
+          .select("*")
+          .order("id", { ascending: true });
+
+        // Fetch Users
+        const { data: dbUsers, error: uError } = await supabase
+          .from("users")
+          .select("*")
+          .order("id", { ascending: true });
+
+        if (cancelled) return;
+
+        if (oError || pError || uError) {
+          console.warn("Table load failed, check if tables exist in Supabase:", { oError, pError, uError });
+          setErrorMsg("Failed to load tables from Supabase. Ensure you run the SQL migration script in Supabase SQL Editor. Reverting to Mock Mode for preview.");
+          setIsUsingMock(true);
+          setOrders(mockOrders);
+          setProducts(mockProducts);
+          setUsers(mockUsers);
+        } else {
+          setOrders(dbOrders || []);
+          setProducts(dbProducts || []);
+          setUsers(dbUsers || []);
+
+          try {
+            const { data: sData, error: sError } = await supabase
+              .from("settings")
+              .select("key, value");
+            if (!sError && sData && !cancelled) {
+              const wa = sData.find(s => s.key === "whatsapp_number");
+              if (wa) setWhatsappSetting(wa.value);
+
+              const au = sData.find(s => s.key === "admin_username");
+              if (au) {
+                setDbAdminUser(au.value);
+                setEditAdminUser(au.value);
+              }
+
+              const ap = sData.find(s => s.key === "admin_password");
+              if (ap) {
+                setDbAdminPass(ap.value);
+              }
+            }
+          } catch (sErr) {
+            console.warn("Failed to load settings from DB:", sErr);
+          }
+        }
+      } catch (err) {
+        if (cancelled) return;
+        console.error(err);
+        setErrorMsg("Error fetching database. Defaulting to local mock mode.");
         setIsUsingMock(true);
         setOrders(mockOrders);
         setProducts(mockProducts);
         setUsers(mockUsers);
-      } else {
-        setOrders(dbOrders || []);
-        setProducts(dbProducts || []);
-        setUsers(dbUsers || []);
-
-        try {
-          const { data: sData, error: sError } = await supabase
-            .from("settings")
-            .select("key, value");
-          if (!sError && sData) {
-            const wa = sData.find(s => s.key === "whatsapp_number");
-            if (wa) setWhatsappSetting(wa.value);
-
-            const au = sData.find(s => s.key === "admin_username");
-            if (au) {
-              setDbAdminUser(au.value);
-              setEditAdminUser(au.value);
-            }
-
-            const ap = sData.find(s => s.key === "admin_password");
-            if (ap) {
-              setDbAdminPass(ap.value);
-            }
-          }
-        } catch (sErr) {
-          console.warn("Failed to load settings from DB:", sErr);
-        }
+      } finally {
+        if (!cancelled) setLoading(false);
       }
-    } catch (err) {
-      console.error(err);
-      setErrorMsg("Error fetching database. Defaulting to local mock mode.");
-      setIsUsingMock(true);
-      setOrders(mockOrders);
-      setProducts(mockProducts);
-      setUsers(mockUsers);
-    } finally {
-      setLoading(false);
-    }
-  });
+    };
 
-  useEffect(() => {
-    loadData();
-  }, [isUsingMock, loadData]);
+    void run();
+    return () => { cancelled = true; };
+  }, [fetchTick, isUsingMock]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── DB / Action Handlers ──
   const handleSaveOrder = async () => {
@@ -229,8 +239,8 @@ export default function AdminPage() {
       }
       setShowModal(null);
       loadData();
-    } catch (err: any) {
-      alert("Error saving to Supabase: " + err.message);
+    } catch (err: unknown) {
+      alert("Error saving to Supabase: " + (err instanceof Error ? err.message : String(err)));
     }
   };
 
@@ -260,8 +270,8 @@ export default function AdminPage() {
       }
       setShowModal(null);
       loadData();
-    } catch (err: any) {
-      alert("Error saving to Supabase: " + err.message);
+    } catch (err: unknown) {
+      alert("Error saving to Supabase: " + (err instanceof Error ? err.message : String(err)));
     }
   };
 
@@ -294,8 +304,8 @@ export default function AdminPage() {
         .getPublicUrl(fileName);
 
       setProductForm(prev => ({ ...prev, image: publicUrlData.publicUrl }));
-    } catch (err: any) {
-      alert("Storage upload failed: " + err.message + "\n\nNote: Make sure to create a public Storage Bucket named 'products' in your Supabase Dashboard under Storage -> New Bucket.");
+    } catch (err: unknown) {
+      alert("Storage upload failed: " + (err instanceof Error ? err.message : String(err)) + "\n\nNote: Make sure to create a public Storage Bucket named 'products' in your Supabase Dashboard under Storage -> New Bucket.");
     } finally {
       setUploadingImg(false);
     }
@@ -314,7 +324,7 @@ export default function AdminPage() {
           return;
         }
 
-        const validated = parsed.map((item: any, idx: number) => ({
+        const validated = parsed.map((item: Record<string, string>, idx: number) => ({
           title: item.title || `Botanical Herb #${idx + 1}`,
           description: item.description || "[No description available]",
           price: item.price || "$10.00",
@@ -336,8 +346,8 @@ export default function AdminPage() {
             alert(`Imported ${validated.length} products into Supabase!`);
           }
         }
-      } catch (err: any) {
-        alert("Failed to parse JSON file: " + err.message);
+      } catch (err: unknown) {
+        alert("Failed to parse JSON file: " + (err instanceof Error ? err.message : String(err)));
       }
     };
     reader.readAsText(file);
@@ -370,8 +380,8 @@ export default function AdminPage() {
       }
       setShowModal(null);
       loadData();
-    } catch (err: any) {
-      alert("Error saving to Supabase: " + err.message);
+    } catch (err: unknown) {
+      alert("Error saving to Supabase: " + (err instanceof Error ? err.message : String(err)));
     }
   };
 
@@ -425,9 +435,9 @@ export default function AdminPage() {
       }
 
       setSettingsFeedback("All settings and admin credentials successfully updated in Supabase!");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Failed to save settings:", err);
-      setSettingsFeedback(`Error saving settings: ${err.message || err}`);
+      setSettingsFeedback(`Error saving settings: ${err instanceof Error ? err.message : String(err)}`);
     } finally {
       setSavingSettings(false);
     }
@@ -467,8 +477,8 @@ export default function AdminPage() {
       const { error } = await supabase.from(type).delete().eq("id", id);
       if (error) throw error;
       loadData();
-    } catch (err: any) {
-      alert("Error deleting from Supabase: " + err.message);
+    } catch (err: unknown) {
+      alert("Error deleting from Supabase: " + (err instanceof Error ? err.message : String(err)));
     }
   };
 
@@ -1131,7 +1141,7 @@ export default function AdminPage() {
                   <label className="text-[9px] uppercase tracking-widest text-white/45 block mb-1">Order Status</label>
                   <select
                     value={orderForm.status || "pending"}
-                    onChange={e => setOrderForm({ ...orderForm, status: e.target.value as any })}
+                    onChange={e => setOrderForm({ ...orderForm, status: e.target.value as Order["status"] })}
                     className="w-full bg-[#0b1f1a] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   >
                     <option value="pending">Pending</option>
@@ -1326,7 +1336,7 @@ export default function AdminPage() {
                   <label className="text-[9px] uppercase tracking-widest text-white/45 block mb-1">Role / Permissions</label>
                   <select
                     value={userForm.role || "customer"}
-                    onChange={e => setUserForm({ ...userForm, role: e.target.value as any })}
+                    onChange={e => setUserForm({ ...userForm, role: e.target.value as User["role"] })}
                     className="w-full bg-[#0b1f1a] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500/50"
                   >
                     <option value="customer">Customer (Standard)</option>

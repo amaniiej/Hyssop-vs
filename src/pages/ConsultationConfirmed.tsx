@@ -35,13 +35,17 @@ export default function ConsultationConfirmed() {
 
   // ─── ROUTE GUARD: VERIFY STRIPE SESSION ───
   useEffect(() => {
-    if (!sessionId) {
-      setIsAuthorized(false);
-      setVerifying(false);
-      return;
-    }
+    let cancelled = false;
 
-    async function verifyPayment() {
+    const run = async () => {
+      if (!sessionId) {
+        if (!cancelled) {
+          setIsAuthorized(false);
+          setVerifying(false);
+        }
+        return;
+      }
+
       try {
         if (supabase) {
           // Queries your database to ensure this Stripe session is valid and exists in your orders
@@ -51,24 +55,27 @@ export default function ConsultationConfirmed() {
             .eq("id", sessionId)
             .single();
 
-          if (!error && data) {
-            setIsAuthorized(true);
-          } else {
-            // If session isn't in DB yet, fallback to validating format (useful for test checkouts)
-            setIsAuthorized(sessionId.startsWith("cs_"));
+          if (!cancelled) {
+            if (!error && data) {
+              setIsAuthorized(true);
+            } else {
+              // If session isn't in DB yet, fallback to validating format (useful for test checkouts)
+              setIsAuthorized(sessionId.startsWith("cs_"));
+            }
           }
         } else {
           // Fallback during local development if Supabase isn't configured yet
-          setIsAuthorized(sessionId.startsWith("cs_"));
+          if (!cancelled) setIsAuthorized(sessionId.startsWith("cs_"));
         }
-      } catch (err) {
-        setIsAuthorized(false);
+      } catch {
+        if (!cancelled) setIsAuthorized(false);
       } finally {
-        setVerifying(false);
+        if (!cancelled) setVerifying(false);
       }
-    }
+    };
 
-    verifyPayment();
+    void run();
+    return () => { cancelled = true; };
   }, [sessionId]);
 
   const content = {
