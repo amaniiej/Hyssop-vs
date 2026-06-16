@@ -173,7 +173,7 @@ export default function Shop() {
     try {
       const saved = localStorage.getItem("hyssop_cart");
       return saved ? JSON.parse(saved) : [];
-    } catch (_e) { return []; }
+    } catch (e) { return []; }
   });
   const [cartOpen, setCartOpen] = useState(false);
 

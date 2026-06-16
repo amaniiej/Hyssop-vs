@@ -21,9 +21,10 @@ useEffect(() => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // stop watching once visible, saves memory
       }
     });
-  });
+  }, { threshold: 0.1 }); // only trigger when 10% of section is visible
 
   elements.forEach((el) => observer.observe(el));
 

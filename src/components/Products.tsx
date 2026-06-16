@@ -13,8 +13,21 @@ interface Product {
 
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   const savedScrollY = useRef(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Pause background animations when section is off-screen
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const io = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    });
+    io.observe(section);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     if (selectedProduct) {
@@ -134,10 +147,13 @@ export default function Products() {
 
   return (
     <>
-      <section id="products" className="relative py-24 px-6 bg-[#f5f0eb] overflow-hidden">
+      <section ref={sectionRef} id="products" className="relative py-24 px-6 bg-[#f5f0eb] overflow-hidden">
         
         {/* Living background */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-anim-container"
+          style={{ ["--anim-state" as string]: isVisible ? "running" : "paused" }}
+        >
           <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-green-500/10 blur-[130px] rounded-full animate-pulse-slow" />
           <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-emerald-600/10 blur-[110px] rounded-full animate-pulse-slow delay-1000" />
           
@@ -249,21 +265,21 @@ export default function Products() {
           50% { opacity: 0.5; }
           100% { stroke-dashoffset: 0; stroke-dasharray: 2000; opacity: 0.1; } 
         }
-        .animate-draw-line { animation: draw-line 15s linear infinite; }
-        .animate-draw-line-slow { animation: draw-line 25s linear infinite reverse; }
+        .animate-draw-line { animation: draw-line 15s linear infinite; animation-play-state: var(--anim-state, running); }
+        .animate-draw-line-slow { animation: draw-line 25s linear infinite reverse; animation-play-state: var(--anim-state, running); }
 
         @keyframes float-pollen {
           0% { transform: translate(0, 0); opacity: 0; }
           50% { opacity: 0.5; }
           100% { transform: translate(100px, -100px); opacity: 0; }
         }
-        .animate-float-pollen { animation: float-pollen 20s linear infinite; }
+        .animate-float-pollen { animation: float-pollen 20s linear infinite; animation-play-state: var(--anim-state, running); }
 
         @keyframes pulse-slow {
-          0%, 100% { opacity: 0.1; transform: scale(1); }
-          50% { opacity: 0.2; transform: scale(1.1); }
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.2; }
         }
-        .animate-pulse-slow { animation: pulse-slow 10s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 10s ease-in-out infinite; animation-play-state: var(--anim-state, running); }
 
         @keyframes shimmer { 
           0% { transform: translateX(-150%) skewX(-45deg); }

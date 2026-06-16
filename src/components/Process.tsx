@@ -98,8 +98,8 @@ export default function Process() {
           <div className="absolute inset-y-[10%] w-full bg-green-400/10 blur-[120px] rounded-[100%]" />
         </div>
 
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/5 blur-[120px] rounded-full animate-pulse delay-700" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full" style={{ animation: "gentle-fade 6s ease-in-out infinite" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/5 blur-[120px] rounded-full" style={{ animation: "gentle-fade 6s ease-in-out infinite", animationDelay: "3s" }} />
         
         <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 1000">
           {/* Changed strokes to green since white is invisible on this background */}
@@ -185,6 +185,10 @@ export default function Process() {
         </div>
 
       </div>
+
+      <style>{`
+        @keyframes gentle-fade { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+      `}</style>
     </section>
   );
 }

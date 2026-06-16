@@ -85,7 +85,11 @@ export default function Services() {
       { cx: 0.50, cy: 0.80, ax: 0.07, ay: 0.05, pX: 68,  pY: 92,  hue: 140, a: 0.07, r: 0.38 },
     ];
 
+    let isVisible = false;
+
     const draw = (now: number) => {
+      if (!isVisible) return;
+
       const s = now / 1000;
       const W = canvas.width;
       const H = canvas.height;
@@ -113,7 +117,7 @@ export default function Services() {
 
       // ─── OPTIMIZATION: Skip requestAnimationFrame loop entirely on mobile ───
       if (isMobileNow) {
-        return; 
+        return;
       }
 
       const ease = 0.03;
@@ -132,10 +136,21 @@ export default function Services() {
 
       raf = requestAnimationFrame(draw);
     };
-    raf = requestAnimationFrame(draw);
+
+    // Only run the loop when the section is on screen
+    const io = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(raf);
+      }
+    });
+    io.observe(section);
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       section.removeEventListener("mousemove", onMove);
       ro.disconnect();
     };

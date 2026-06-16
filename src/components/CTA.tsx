@@ -7,8 +7,17 @@ export default function CTA() {
 
   // Rotate the "Seal" based on scroll for a premium interactive feel
   useEffect(() => {
-    const handleScroll = () => setRotation(window.scrollY * 0.2);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setRotation(window.scrollY * 0.2);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

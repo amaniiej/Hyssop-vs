@@ -67,22 +67,29 @@ export default function Navbar() {
   }, [menuOpen]);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
 
-      if (location.pathname === "/") {
-        const sections = ["home", "about", "products", "story", "services", "reviews", "faq", "contact"];
-        let current = "home";
-        for (const section of sections) {
-          const el = document.getElementById(section);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 200 && rect.bottom >= 200) { current = section; break; }
+          if (location.pathname === "/") {
+            const sections = ["home", "about", "products", "story", "services", "reviews", "faq", "contact"];
+            let current = "home";
+            for (const section of sections) {
+              const el = document.getElementById(section);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= 200 && rect.bottom >= 200) { current = section; break; }
+              }
+            }
+            setActive(current);
+          } else {
+            setActive(location.pathname.split("/")[1] || "home");
           }
-        }
-        setActive(current);
-      } else {
-        setActive(location.pathname.split("/")[1] || "home");
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -93,7 +100,7 @@ export default function Navbar() {
       }, 300);
     }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname, location.hash]);
