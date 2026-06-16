@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { createPortal } from "react-dom";
+import SEO from "../components/SEO";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaChevronLeft, FaChevronRight, FaShoppingBag, FaTrash, FaMinus, FaPlus, FaCheckCircle, FaSearch, FaTimes } from "react-icons/fa";
@@ -632,6 +633,11 @@ export default function Shop() {
   // ─────────────────────────────────────────────────────────
   return (
     <div className="bg-[#095845] text-white min-h-screen font-sans selection:bg-green-500/30">
+      <SEO
+        title="Buy Organic Ethiopian Herbs Online | Hyssop Herbs & Wellness"
+        description="Shop our full catalog of 100% organic Ethiopian herbal products. Remedies for liver cleansing, blood sugar, fertility, gut health, hormonal balance and more. Shipped to USA and Canada."
+        url="https://hyssopherb.com/shop"
+      />
       <Navbar />
 
       {/* Background */}

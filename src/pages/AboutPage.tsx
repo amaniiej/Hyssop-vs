@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { 
@@ -45,6 +46,11 @@ export default function AboutPage() {
 
   return (
     <div className="bg-[#095845] text-white min-h-screen font-sans overflow-x-hidden relative selection:bg-green-500/30">
+      <SEO
+        title="Our Story & Herbalist | Hyssop Herbs & Wellness"
+        description="Meet Addis Limenih, certified herbalist and founder of Hyssop Herbs & Wellness. Discover our mission to bring authentic Ethiopian herbal wisdom to the diaspora in the USA and Canada."
+        url="https://hyssopherb.com/about"
+      />
       
       {/* --- DOPE BACKGROUND: CURLY LINES & 15 LOGOS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

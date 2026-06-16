@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEO from "../components/SEO";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -105,6 +106,12 @@ export default function ConsultationConfirmed() {
 
   return (
     <div className="bg-[#f0f4f1] text-[#0b1f1a] min-h-screen flex flex-col font-sans selection:bg-green-500/30 overflow-x-hidden relative">
+      <SEO
+        title="Consultation Confirmed | Hyssop Herbs & Wellness"
+        description="Schedule your herbal consultation session."
+        url="https://hyssopherb.com/consultation-confirmed"
+        noindex={true}
+      />
       <Navbar />
 
       {/* ─── TOP DARK FADE FOR NAVBAR VISIBILITY (Fades exactly above the Title) ─── */}

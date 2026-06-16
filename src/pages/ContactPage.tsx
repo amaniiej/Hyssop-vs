@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { FaEnvelope, FaGlobeAfrica, FaGlobeAmericas, FaPaperPlane } from "react-icons/fa";
@@ -58,6 +59,11 @@ export default function ContactPage() {
 
   return (
     <div className="bg-[#095845] text-white min-h-screen flex flex-col font-sans selection:bg-green-500/30 overflow-x-hidden relative">
+      <SEO
+        title="Book a Consultation | Hyssop Herbs & Wellness"
+        description="Book a $25 expert herbal consultation with Hyssop Herbs & Wellness. Get personalized guidance on liver health, hormonal balance, fertility, gut health, and more from a certified Ethiopian herbalist."
+        url="https://hyssopherb.com/contact"
+      />
       <Navbar />
 
       {/* --- DYNAMIC GLOWING BACKGROUND (With Logo Watermarks Added) --- */}
